@@ -12,6 +12,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { AlliancesComponent } from './components/alliances/alliances.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ContactComponent,
     AboutComponent,
     AlliancesComponent,
-    FooterComponent
+    FooterComponent,
+    WhatsappComponent
   ],
   imports: [
     BrowserModule,
