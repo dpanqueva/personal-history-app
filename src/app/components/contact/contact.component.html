@@ -1,0 +1,49 @@
+<section class="p-3 contact">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">
+                Contactanos <i class="bi bi-phone-vibrate-fill"></i>
+            </h2>
+            <hr />
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                <form class="row g-3 needs-validation" novalidate #formContact="ngForm">
+                    <div class="mb-3">
+                        <label for="nameContact" class="form-label">Nombre</label>
+                        <input type="text" id="nameContact" class="form-control form-control-lg" name="nombre" email
+                            placeholder="Ingrese su nombre" minlength="4" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailContact" class="form-label">Correo</label>
+                        <input type="email" id="emailContact" class="form-control form-control-lg" name="correo" email
+                            placeholder="Ingrese su correo" minlength="4" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactNumber" class="form-label">Número de contacto</label>
+                        <input type="number" class="form-control" id="contactNumber" placeholder="3215649877" required
+                            name="numero_contacto" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactDescription" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="contactDescription" placeholder="Descripción del programa"
+                            required name="mensaje"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <h3>Lo que dicen de nosotros</h3>
+                <h2>
+                    <i class="bi bi-facebook"></i>|
+                    <i class="bi bi-twitter-x"></i>|
+                    <i class="bi bi-instagram"></i>
+                </h2>
+
+                <hr />
+                <h3>Nuestro correo</h3>
+                <h4>
+                    <i class="bi bi-envelope-at"></i>
+                    INFO&#64;INVEXDIJIN.COM
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>

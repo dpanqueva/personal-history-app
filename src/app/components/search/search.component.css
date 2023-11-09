@@ -1,0 +1,19 @@
+.world-around{
+    background-image: url('../../../assets/img/roundWorld.gif');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-align-white{
+    color: #ffffff;
+    text-align: justify;
+}
+
+.font-black{
+    background-color: #000000;
+}
+
+.my-header{
+    margin-top: 50px;
+}

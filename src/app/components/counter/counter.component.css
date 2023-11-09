@@ -1,0 +1,13 @@
+.counter-services{
+  background-color: #066065;
+  color: #ffffff;
+}
+
+.counter {
+      animation-duration: 1s;
+      animation-delay: 0s;
+    }
+
+    i {
+      font-size: 20px !Important;
+    }
