@@ -1,7 +1,7 @@
 <section class="font-black p-3 my-header">
     <div class="container world-around">
         <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
                 <span class="text-align-white fs-5">
                     <span class="fw-bold">INVEXDIJIN</span>, su socio confiable en investigaciones. Nuestra agencia ofrece apoyo integral en
                     investigaciones penales, disciplinarias, JPM y procesos civiles. Especializados en recolectar y
@@ -11,12 +11,12 @@
                     comprometidos con su búsqueda de la verdad y su defensa legal.
                 </span>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center">
-                <form #searchForm="ngForm">
-                    <h3 class="text-white">Inicia aquí tu consulta!</h3>
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
+                <form #searchPersonForm="ngForm">
+                    <h3 class="text-white">Busca personas!</h3>
                     <div class="form-group">
-                        <label for="documentType" class="form-label text-white">Tipo de documento</label>
-                        <select class="form-control form-control-sm form-select-sm" id="documentType"
+                        <label for="documentTypeBp" class="form-label text-white">Tipo de documento</label>
+                        <select class="form-control form-control-sm form-select-sm" id="documentTypeBp"
                             aria-label="Default select example">
                             <option selected>Selecciona tu opción</option>
                             <option value="CC">Cédula de cuidadanía</option>
@@ -24,16 +24,43 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="documentNumber" class="form-label text-white">Número de documento</label>
-                        <input type="text" class="form-control form-control-sm" id="documentNumber">
+                        <label for="documentNumberBp" class="form-label text-white">Número de documento</label>
+                        <input type="text" class="form-control form-control-sm" id="documentNumberBp">
                     </div>
                     <div class="form-group">
-                        <label for="contactNumber" class="form-label text-white">Número de contacto</label>
-                        <input type="text" class="form-control form-control-sm" id="contactNumber">
+                        <label for="contactNumberBp" class="form-label text-white">Número de contacto</label>
+                        <input type="text" class="form-control form-control-sm" id="contactNumberBp">
                     </div>
                     <div class="text-center">
                         <div class="pt-2" >
-                            <button class="btn btn-sm btn-primary text-white">Consultar</button>
+                            <button class="btn btn-sm btn-primary text-white">Consultar Persona</button>
+                        </div>
+                    </div>
+                    
+                </form>
+                <hr class="text-white"/>
+                <form #searchJudicialForm="ngForm">
+                    <h3 class="text-white">Antecedentes judiciales!</h3>
+                    <div class="form-group">
+                        <label for="documentTypeAj" class="form-label text-white">Tipo de documento</label>
+                        <select class="form-control form-control-sm form-select-sm" id="documentTypeAj"
+                            aria-label="Default select example">
+                            <option selected>Selecciona tu opción</option>
+                            <option value="CC">Cédula de cuidadanía</option>
+                            <option value="PA">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="documentNumberAj" class="form-label text-white">Número de documento</label>
+                        <input type="text" class="form-control form-control-sm" id="documentNumberAj">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumberAj" class="form-label text-white">Número de contacto</label>
+                        <input type="text" class="form-control form-control-sm" id="contactNumberAj">
+                    </div>
+                    <div class="text-center">
+                        <div class="pt-2" >
+                            <button class="btn btn-sm btn-primary text-white">Consultar antecedentes</button>
                         </div>
                     </div>
                     
