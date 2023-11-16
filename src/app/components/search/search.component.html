@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
                 <span class="text-align-white fs-5">
-                    <span class="fw-bold">INVEXDIJIN</span>, su socio confiable en investigaciones. Nuestra agencia ofrece apoyo integral en
+                    <span class="fw-bold">INVEXDIJIN</span>, su socio confiable en investigaciones. Nuestra agencia
+                    ofrece apoyo integral en
                     investigaciones penales, disciplinarias, JPM y procesos civiles. Especializados en recolectar y
                     analizar pruebas, respaldamos su defensa legal con precisión técnica. También nos destacamos en la
                     búsqueda de personas y el análisis minucioso de antecedentes judiciales y contravencionales. Confíe
@@ -13,57 +14,55 @@
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
                 <form #searchPersonForm="ngForm">
-                    <h3 class="text-white">Busca personas!</h3>
+                    <h3 class="text-white">Consulta aquí tu pasado judicial o la búsqueda de personas</h3>
                     <div class="form-group">
                         <label for="documentTypeBp" class="form-label text-white">Tipo de documento</label>
                         <select class="form-control form-control-sm form-select-sm" id="documentTypeBp"
-                            aria-label="Default select example">
+                            aria-label="Default select example" required [(ngModel)]="searchPeople.documentType"
+                            #documentTypeBp="ngModel" documentTypeBp name="documentTypeBp">
                             <option selected>Selecciona tu opción</option>
                             <option value="CC">Cédula de cuidadanía</option>
                             <option value="PA">Pasaporte</option>
                         </select>
+                        <div *ngIf="documentTypeBp.errors?.['required']">
+                            <div class="alert alert-warning"
+                                *ngIf="documentTypeBp.invalid && (documentTypeBp.dirty || documentTypeBp.touched)">
+                                Por favor, elija su tipo de documento.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="documentNumberBp" class="form-label text-white">Número de documento</label>
-                        <input type="text" class="form-control form-control-sm" id="documentNumberBp">
+                        <input type="text" class="form-control form-control-sm" id="documentNumberBp"
+                            [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
+                            documentNumberBp name="documentNumberBp">
+                        <div *ngIf="documentNumberBp.errors?.['required']">
+                            <div class="alert alert-warning"
+                                *ngIf="documentNumberBp.invalid && (documentNumberBp.dirty || documentNumberBp.touched)">
+                                Por favor, escriba su número de documento.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="contactNumberBp" class="form-label text-white">Número de contacto</label>
-                        <input type="text" class="form-control form-control-sm" id="contactNumberBp">
-                    </div>
-                    <div class="text-center">
-                        <div class="pt-2" >
-                            <button class="btn btn-sm btn-primary text-white">Consultar Persona</button>
+                        <input type="number" class="form-control form-control-sm" id="contactNumberBp"
+                            [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
+                            name="contactNumberBp">
+                        <div *ngIf="contactNumberBp.errors?.['required']">
+                            <div class="alert alert-warning"
+                                *ngIf="contactNumberBp.invalid && (contactNumberBp.dirty || contactNumberBp.touched)">
+                                Por favor, escriba su número de contacto.
+                            </div>
                         </div>
                     </div>
-                    
-                </form>
-                <hr class="text-white"/>
-                <form #searchJudicialForm="ngForm">
-                    <h3 class="text-white">Antecedentes judiciales!</h3>
-                    <div class="form-group">
-                        <label for="documentTypeAj" class="form-label text-white">Tipo de documento</label>
-                        <select class="form-control form-control-sm form-select-sm" id="documentTypeAj"
-                            aria-label="Default select example">
-                            <option selected>Selecciona tu opción</option>
-                            <option value="CC">Cédula de cuidadanía</option>
-                            <option value="PA">Pasaporte</option>
-                        </select>
+                    <div class="p-2">
+
+                        <button class="btn btn-sm btn-primary text-whit float-start"
+                            [disabled]="searchPersonForm.form.invalid">Consultar Persona</button>
+
+                        <button class="btn btn-sm btn-primary text-white float-end"
+                            [disabled]="searchPersonForm.form.invalid">Consultar pasado judicial</button>
                     </div>
-                    <div class="form-group">
-                        <label for="documentNumberAj" class="form-label text-white">Número de documento</label>
-                        <input type="text" class="form-control form-control-sm" id="documentNumberAj">
-                    </div>
-                    <div class="form-group">
-                        <label for="contactNumberAj" class="form-label text-white">Número de contacto</label>
-                        <input type="text" class="form-control form-control-sm" id="contactNumberAj">
-                    </div>
-                    <div class="text-center">
-                        <div class="pt-2" >
-                            <button class="btn btn-sm btn-primary text-white">Consultar antecedentes</button>
-                        </div>
-                    </div>
-                    
                 </form>
             </div>
         </div>

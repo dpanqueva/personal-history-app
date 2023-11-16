@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -13,6 +14,9 @@ import { AboutComponent } from './components/about/about.component';
 import { AlliancesComponent } from './components/alliances/alliances.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
+import { ContactService } from './core/service/contact.service';
+import { MessageService } from './core/service/message.service';
+import { SearchPeopleService } from './core/service/search-people.service';
 
 
 @NgModule({
@@ -30,9 +34,10 @@ import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ContactService, MessageService, SearchPeopleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
