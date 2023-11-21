@@ -1,19 +1,55 @@
-.world-around{
-    background-image: url('../../../assets/img/roundWorld.gif');
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+@media (min-width: 1024px) {
+    .world-around {
+        background-image: url('../../../assets/img/roundWorld.gif');
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .text-align-white {
+        color: #ffffff;
+        text-align: justify;
+    }
+
+    .font-black {
+        background-color: #000000;
+    }
+
+    .float-start {
+        float: left!important;
+    }
+
+    .float-end {
+        float: right!important;
+    }
 }
 
-.text-align-white{
-    color: #ffffff;
-    text-align: justify;
-}
 
-.font-black{
-    background-color: #000000;
-}
+@media (max-width: 1023px) {
+    .font-black {
+        background-color: #f3f5fac0;
+    }
 
-.my-header{
+    .world-around {
+        background-color: #f3f5fac0;
+    }
+
+    .text-align-white {
+        color: #000000;
+        text-align: justify;
+    }
+
+    .btn-primary{
+        color: #ffffff;;
+    }
+
+    .btn button{
+        padding: 50px !important;
+    }
+
+  }
+
+
+.my-header {
     margin-top: 50px;
 }

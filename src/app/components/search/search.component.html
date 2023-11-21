@@ -14,9 +14,9 @@
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
                 <form #searchPersonForm="ngForm">
-                    <h3 class="text-white">Consulta aquí tu pasado judicial o la búsqueda de personas</h3>
+                    <h3 class="text-align-white">Consulta aquí tu pasado judicial o la búsqueda de personas</h3>
                     <div class="form-group">
-                        <label for="documentTypeBp" class="form-label text-white">Tipo de documento</label>
+                        <label for="documentTypeBp" class="form-label text-align-white">Tipo de documento</label>
                         <select class="form-control form-control-sm form-select-sm" id="documentTypeBp"
                             aria-label="Default select example" required [(ngModel)]="searchPeople.documentType"
                             #documentTypeBp="ngModel" documentTypeBp name="documentTypeBp">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="documentNumberBp" class="form-label text-white">Número de documento</label>
+                        <label for="documentNumberBp" class="form-label text-align-white">Número de documento</label>
                         <input type="text" class="form-control form-control-sm" id="documentNumberBp"
                             [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
                             documentNumberBp name="documentNumberBp">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="contactNumberBp" class="form-label text-white">Número de contacto</label>
+                        <label for="contactNumberBp" class="form-label text-align-white">Número de contacto</label>
                         <input type="number" class="form-control form-control-sm" id="contactNumberBp"
                             [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
                             name="contactNumberBp">
@@ -55,14 +55,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2">
-
-                        <button class="btn btn-sm btn-primary text-whit float-start"
+                    <div class="d-grid gap-2 d-md-block p-2">
+                        <button class="btn btn-sm btn-primary float-start p-2"
                             [disabled]="searchPersonForm.form.invalid">Consultar Persona</button>
 
-                        <button class="btn btn-sm btn-primary text-white float-end"
+                        <button class="btn btn-sm btn-primary float-end p-2"
                             [disabled]="searchPersonForm.form.invalid">Consultar pasado judicial</button>
-                    </div>
+                      </div>
                 </form>
             </div>
         </div>
