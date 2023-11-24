@@ -1,4 +1,4 @@
-<section class="font-black p-3 my-header">
+<section class="font-black p-3 my-header" id="search">
     <div class="container world-around">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
@@ -25,7 +25,7 @@
                             <option value="PA">Pasaporte</option>
                         </select>
                         <div *ngIf="documentTypeBp.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentTypeBp.invalid && (documentTypeBp.dirty || documentTypeBp.touched)">
                                 Por favor, elija su tipo de documento.
                             </div>
@@ -37,7 +37,7 @@
                             [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
                             documentNumberBp name="documentNumberBp">
                         <div *ngIf="documentNumberBp.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentNumberBp.invalid && (documentNumberBp.dirty || documentNumberBp.touched)">
                                 Por favor, escriba su número de documento.
                             </div>
@@ -49,7 +49,7 @@
                             [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
                             name="contactNumberBp">
                         <div *ngIf="contactNumberBp.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumberBp.invalid && (contactNumberBp.dirty || contactNumberBp.touched)">
                                 Por favor, escriba su número de contacto.
                             </div>
@@ -57,10 +57,10 @@
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
                         <button class="btn btn-sm btn-primary float-start p-2"
-                            [disabled]="searchPersonForm.form.invalid">Consultar Persona</button>
+                            [disabled]="searchPersonForm.form.invalid" (click)="fnSearchPeople()">Consultar Persona</button>
 
                         <button class="btn btn-sm btn-primary float-end p-2"
-                            [disabled]="searchPersonForm.form.invalid">Consultar pasado judicial</button>
+                            [disabled]="searchPersonForm.form.invalid" (click)="fnSearchPeopleJudicial()">Consultar pasado judicial</button>
                       </div>
                 </form>
             </div>
