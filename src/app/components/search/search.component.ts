@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
 import { MessageService } from 'src/app/core/service/message.service';
 import { SearchPeopleService } from 'src/app/core/service/search-people.service';
@@ -9,24 +10,29 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent implements OnInit {
 
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
-  searchJudicial: SearchPeopleJudicial = new SearchPeopleJudicial();
 
   constructor(private searchPeopleService: SearchPeopleService,
-    private messageService: MessageService){}
+    private messageService: MessageService
+    , private activateRoute: ActivatedRoute
+    , private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  fnPearchPeople():void{
-    this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
-      next: (e)=>{
-        this.messageService.successFullMessage('');
-      }
-    });
+  fnSearchPeople(): void {
+    this.searchPeople.searchType = 'people';
+    this.router.navigate(['search',this.searchPeople.documentType,this.searchPeople.documentNumber,this.searchPeople.cellphone,this.searchPeople.searchType]);
+    
+
+  }
+
+  fnSearchPeopleJudicial(): void {
+    this.searchPeople.searchType = 'judicial';
+    this.router.navigate(['search',this.searchPeople.documentType,this.searchPeople.documentNumber,this.searchPeople.cellphone,this.searchPeople.searchType]);
   }
 
 }

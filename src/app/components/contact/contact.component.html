@@ -1,4 +1,4 @@
-<section class="p-3 contact">
+<section class="p-3 contact" id="contact">
     <div class="container">
         <div class="row">
             <h2 class="text-center">
@@ -9,16 +9,16 @@
                 <form #formContact="ngForm">
                     <div class="mb-3">
                         <label for="nameContact" class="form-label">Nombre</label>
-                        <input type="text" name="nameContact" id="nameContact" [(ngModel)]="contact.name" nameContact
+                        <input type="text" name="nameContact" placeholder="Ingrese su nombre" id="nameContact" [(ngModel)]="contact.name" nameContact
                             #nameContact="ngModel" class="form-control form-control-lg" required minlength="4">
                         <div *ngIf="nameContact.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="nameContact.invalid && (nameContact.dirty || nameContact.touched)">
                                 Por favor, escriba su nombre.
                             </div>
                         </div>
                         <div *ngIf="nameContact.errors?.['minlength']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="nameContact.invalid && (nameContact.dirty || nameContact.touched)">
                                 Por favor, Su nombre debe tener al menos 4 caracteres.
                             </div>
@@ -30,17 +30,17 @@
                             [(ngModel)]="contact.email" name="emailContact" email placeholder="Ingrese su correo" minlength="4"
                             required #email="ngModel" email />
                         <div *ngIf="email.errors?.['required']">
-                            <div class="alert alert-warning" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
                                 Por favor, escriba su correo.
                             </div>
                         </div>
                         <div *ngIf="email.errors?.['minlength']">
-                            <div class="alert alert-warning" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
                                 Por favor, Su correo debe tener al menos 4 caracteres.
                             </div>
                         </div>
                         <div *ngIf="email.errors?.['email']">
-                            <div class="alert alert-warning" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
                                 Por favor, Su correo debe cumplir con un formato valido.
                             </div>
                         </div>
@@ -51,13 +51,13 @@
                             [(ngModel)]="contact.cellphone" name="contactNumber" #contactNumber="ngModel"
                             contactNumber />
                         <div *ngIf="contactNumber.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
                                 Por favor, escriba su número de contacto.
                             </div>
                         </div>
                         <div *ngIf="contactNumber.errors?.['number']">
-                            <div class="alert alert-warning invalid-feedback"
+                            <div class="alert alert-warning invalid-feedback form-alert-show"
                                 *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
                                 Por favor, su número de contacto debe cumplir con el formato valido, solo números.
                             </div>
@@ -70,19 +70,19 @@
                             maxlength="400"
                             minlength="5"></textarea>
                         <div *ngIf="message.errors?.['required']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
                                 Por favor, escriba su mensaje.
                             </div>
                         </div>
                         <div *ngIf="message.errors?.['minlength']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
                                 Por favor, su mensaje debe tener al menos 5 caracteres.
                             </div>
                         </div>
                         <div *ngIf="message.errors?.['maxlength']">
-                            <div class="alert alert-warning"
+                            <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
                                 Por favor, su mensaje debe tener hasta 400 caracteres.
                             </div>
@@ -101,9 +101,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <h3>Lo que dicen de nosotros</h3>
                 <h2>
-                    <i class="bi bi-facebook"></i>|
-                    <i class="bi bi-twitter-x"></i>|
-                    <i class="bi bi-instagram"></i>
+                    <div class="social-links mt-3">
+                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i class="bi bi-facebook"></i>|</a></span>
+                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i class="bi bi-instagram"></i></a></span>
+                      </div>
                 </h2>
 
                 <hr />
