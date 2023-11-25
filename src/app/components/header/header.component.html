@@ -1,28 +1,35 @@
 <header id="principal">
   <nav class="navbar navbar-expand-sm fixed-top bg-body-tertiary navbar-back-color">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#principal">INVEXDIJIN</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-white" href="#">INVEXDIJIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="active" aria-current="page" href="#principal">Principal</a>
+            <a class="nav-link text-white" routerLinkActive="active" aria-current="page" href="#">{{'menu-principal' |
+              translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="active" href="#products">Servicios</a>
+            <a class="nav-link text-white" routerLinkActive="active" href="#products">{{'menu-services' |
+              translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="active" href="#about-me">Quiénes somos</a>
+            <a class="nav-link text-white" routerLinkActive="active" href="#about-me">{{'menu-about' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="active" href="#alliances">Alianzas</a>
+            <a class="nav-link text-white" routerLinkActive="active" href="#alliances">{{'menu-alliances' |
+              translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="active" href="#contact">Contacto</a>
+            <a class="nav-link text-white" routerLinkActive="active" href="#contact">{{'menu-contact' | translate}}</a>
           </li>
         </ul>
+        <div class="languague">
+          <app-switch-languagues></app-switch-languagues>
+        </div>
       </div>
     </div>
   </nav>

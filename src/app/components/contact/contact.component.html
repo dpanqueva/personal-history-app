@@ -2,104 +2,103 @@
     <div class="container">
         <div class="row">
             <h2 class="text-center">
-                Contactanos <i class="bi bi-phone-vibrate-fill"></i>
+                {{'contact-label-principal'|translate}} <i class="bi bi-phone-vibrate-fill"></i>
             </h2>
             <hr />
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
                 <form #formContact="ngForm">
                     <div class="mb-3">
-                        <label for="nameContact" class="form-label">Nombre</label>
-                        <input type="text" name="nameContact" placeholder="Ingrese su nombre" id="nameContact" [(ngModel)]="contact.name" nameContact
+                        <label for="nameContact" class="form-label">{{'contact-name-label'|translate}}</label>
+                        <input type="text" name="nameContact" placeholder="{{'contact-name-placeholder'|translate}}" id="nameContact" [(ngModel)]="contact.name" nameContact
                             #nameContact="ngModel" class="form-control form-control-lg" required minlength="4">
                         <div *ngIf="nameContact.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="nameContact.invalid && (nameContact.dirty || nameContact.touched)">
-                                Por favor, escriba su nombre.
+                                {{'contact-name-error-message'|translate}}
                             </div>
                         </div>
                         <div *ngIf="nameContact.errors?.['minlength']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="nameContact.invalid && (nameContact.dirty || nameContact.touched)">
-                                Por favor, Su nombre debe tener al menos 4 caracteres.
+                                {{'contact-name-error-message-characters'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="emailContact" class="form-label">Correo</label>
+                        <label for="emailContact" class="form-label">{{'contact-mail-label'|translate}}</label>
                         <input type="email" id="emailContact" class="form-control form-control-lg "
-                            [(ngModel)]="contact.email" name="emailContact" email placeholder="Ingrese su correo" minlength="4"
+                            [(ngModel)]="contact.email" name="emailContact" email placeholder="{{'contact-mail-placeholder'|translate}}" minlength="4"
                             required #email="ngModel" email />
                         <div *ngIf="email.errors?.['required']">
                             <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
-                                Por favor, escriba su correo.
+                                {{'contact-mail-error-message'|translate}}
                             </div>
                         </div>
                         <div *ngIf="email.errors?.['minlength']">
                             <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
-                                Por favor, Su correo debe tener al menos 4 caracteres.
+                                {{'contact-mail-error-message-characters'|translate}}
                             </div>
                         </div>
                         <div *ngIf="email.errors?.['email']">
                             <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
-                                Por favor, Su correo debe cumplir con un formato valido.
+                                {{'contact-mail-error-message-valid'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="contactNumber" class="form-label">Número de contacto</label>
+                        <label for="contactNumber" class="form-label">{{'contact-number-label'|translate}}</label>
                         <input type="number" class="form-control " id="contactNumber" placeholder="3215649877" required
                             [(ngModel)]="contact.cellphone" name="contactNumber" #contactNumber="ngModel"
                             contactNumber />
                         <div *ngIf="contactNumber.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
-                                Por favor, escriba su número de contacto.
+                                {{'contact-number-message'|translate}}
                             </div>
                         </div>
                         <div *ngIf="contactNumber.errors?.['number']">
                             <div class="alert alert-warning invalid-feedback form-alert-show"
                                 *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
-                                Por favor, su número de contacto debe cumplir con el formato valido, solo números.
+                                {{'contact-number-message-number'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="contactDescription" class="form-label">Mensaje</label>
-                        <textarea class="form-control " id="contactDescription" placeholder="Descripción del programa"
+                        <label for="contactDescription" class="form-label">{{'contact-message-label'|translate}}</label>
+                        <textarea class="form-control " id="contactDescription" placeholder="{{'contact-message-placeholder'|translate}}"
                             required [(ngModel)]="contact.message" name="message" message #message="ngModel"
                             maxlength="400"
                             minlength="5"></textarea>
                         <div *ngIf="message.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
-                                Por favor, escriba su mensaje.
+                                {{'contact-message-error-message'|translate}}
                             </div>
                         </div>
                         <div *ngIf="message.errors?.['minlength']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
-                                Por favor, su mensaje debe tener al menos 5 caracteres.
+                                {{'contact-message-error-message-characters'|translate}}
                             </div>
                         </div>
                         <div *ngIf="message.errors?.['maxlength']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
-                                Por favor, su mensaje debe tener hasta 400 caracteres.
+                                {{'contact-message-error-message-characters-max'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3" *ngIf="formContact.form.valid">
                         <div class="text-center">
                             <div class="pt-2">
-                                <button class="btn btn-sm btn-primary text-white" (click)="contactMe()">Registrar
-                                    contacto</button>
+                                <button class="btn btn-sm btn-primary text-white" (click)="contactMe()">{{'contact-button-label'|translate}}</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <h3>Lo que dicen de nosotros</h3>
+                <h3>{{'contact-net-social-label-principal'|translate}}</h3>
                 <h2>
                     <div class="social-links mt-3">
                         <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i class="bi bi-facebook"></i>|</a></span>
@@ -108,7 +107,7 @@
                 </h2>
 
                 <hr />
-                <h3>Nuestro correo</h3>
+                <h3>{{'contact-label-our-mail'|translate}}</h3>
                 <h4>
                     <i class="bi bi-envelope-at"></i>
                     INFO&#64;INVEXDIJIN.COM

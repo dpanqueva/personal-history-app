@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,6 +25,9 @@ import { FindingPersonComponent } from './components/finding-person/finding-pers
 import { HttpInterceptorInterceptor } from './core/interceptors/http-interceptor.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './common/routing/routes.module';
+import { SwitchLanguaguesComponent } from './components/switch-languagues/switch-languagues.component';
+
+
 
 
 @NgModule({
@@ -39,7 +44,9 @@ import { ROUTES } from './common/routing/routes.module';
     WhatsappComponent,
     LoaderComponent,
     FindingPersonComponent,
-    HomeComponent
+    HomeComponent,
+    SwitchLanguaguesComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,8 +54,18 @@ import { ROUTES } from './common/routing/routes.module';
     FormsModule,
     HttpClientModule,
     NgxUiLoaderModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: httLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [ContactService, MessageService, SearchPeopleService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function httLoaderFactory(http: HttpClient){
+return new TranslateHttpLoader(http,'./assets/i18/', '.json');
+}

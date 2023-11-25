@@ -3,65 +3,62 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
                 <span class="text-align-white fs-5">
-                    <span class="fw-bold">INVEXDIJIN</span>, su socio confiable en investigaciones. Nuestra agencia
-                    ofrece apoyo integral en
-                    investigaciones penales, disciplinarias, JPM y procesos civiles. Especializados en recolectar y
-                    analizar pruebas, respaldamos su defensa legal con precisión técnica. También nos destacamos en la
-                    búsqueda de personas y el análisis minucioso de antecedentes judiciales y contravencionales. Confíe
-                    en nuestra experiencia para abordar sus necesidades con profesionalismo y confidencialidad. Estamos
-                    comprometidos con su búsqueda de la verdad y su defensa legal.
+                    <span class="fw-bold">INVEXDIJIN</span>, {{'search-desc-company' |translate}}
                 </span>
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
                 <form #searchPersonForm="ngForm">
-                    <h3 class="text-align-white">Consulta aquí tu pasado judicial o la búsqueda de personas</h3>
+                    <h3 class="text-align-white">{{'search-title-label' | translate}}</h3>
                     <div class="form-group">
-                        <label for="documentTypeBp" class="form-label text-align-white">Tipo de documento</label>
+                        <label for="documentTypeBp" class="form-label text-align-white">{{'search-type-document-label'|
+                            translate}}</label>
                         <select class="form-control form-control-sm form-select-sm" id="documentTypeBp"
                             aria-label="Default select example" required [(ngModel)]="searchPeople.documentType"
                             #documentTypeBp="ngModel" documentTypeBp name="documentTypeBp">
-                            <option selected>Selecciona tu opción</option>
-                            <option value="CC">Cédula de cuidadanía</option>
-                            <option value="PA">Pasaporte</option>
+                            <option value="CC" selected>{{'search-select-value-cc'| translate}}</option>
+                            <option value="PA">{{'search-select-value-pasport'|translate}}</option>
                         </select>
                         <div *ngIf="documentTypeBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentTypeBp.invalid && (documentTypeBp.dirty || documentTypeBp.touched)">
-                                Por favor, elija su tipo de documento.
+                                {{'search-message-error-type-document'| translate}}
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="documentNumberBp" class="form-label text-align-white">Número de documento</label>
+                        <label for="documentNumberBp"
+                            class="form-label text-align-white">{{'search-document-label'|translate}}</label>
                         <input type="text" class="form-control form-control-sm" id="documentNumberBp"
                             [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
                             documentNumberBp name="documentNumberBp">
                         <div *ngIf="documentNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentNumberBp.invalid && (documentNumberBp.dirty || documentNumberBp.touched)">
-                                Por favor, escriba su número de documento.
+                                {{'search-message-error-document-number'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="contactNumberBp" class="form-label text-align-white">Número de contacto</label>
+                        <label for="contactNumberBp"
+                            class="form-label text-align-white">{{'search-contact-number-label'|translate}}</label>
                         <input type="number" class="form-control form-control-sm" id="contactNumberBp"
                             [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
                             name="contactNumberBp">
                         <div *ngIf="contactNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumberBp.invalid && (contactNumberBp.dirty || contactNumberBp.touched)">
-                                Por favor, escriba su número de contacto.
+                                {{'search-message-error-contact-number'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
                         <button class="btn btn-sm btn-primary float-start p-2"
-                            [disabled]="searchPersonForm.form.invalid" (click)="fnSearchPeople()">Consultar Persona</button>
+                            [disabled]="searchPersonForm.form.invalid"
+                            (click)="fnSearchPeople()">{{'search-persona-button-label'|translate}}</button>
 
-                        <button class="btn btn-sm btn-primary float-end p-2"
-                            [disabled]="searchPersonForm.form.invalid" (click)="fnSearchPeopleJudicial()">Consultar pasado judicial</button>
-                      </div>
+                        <button class="btn btn-sm btn-primary float-end p-2" [disabled]="searchPersonForm.form.invalid"
+                            (click)="fnSearchPeopleJudicial()">{{'search-judicial-button-label'|translate}}</button>
+                    </div>
                 </form>
             </div>
         </div>
