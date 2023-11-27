@@ -8,14 +8,13 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'personal-history-app';
-  constructor(private translate: TranslateService){
-    this.translate.addLangs(['en','es']);
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['en', 'es']);
     const lang = this.translate.getBrowserLang();
-    if(lang !== 'en' && lang !== 'es'){
+    if (lang !== 'en' && lang !== 'es') {
       this.translate.setDefaultLang('en');
-    }else{
+    } else {
       this.translate.use(lang);
     }
-
   }
 }

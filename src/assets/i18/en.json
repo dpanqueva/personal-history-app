@@ -68,5 +68,6 @@
     "contact-message-error-message-characters-max":"Please, your message must be up to 400 characters.",
     "contact-button-label":"Contact",
     "contact-net-social-label-principal":"What they say about us",
-    "contact-label-our-mail":"Our email"
+    "contact-label-our-mail":"Our email",
+    "loader-message-screen":"In search process"
 }

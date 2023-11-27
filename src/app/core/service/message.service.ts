@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
-  constructor() { }
+  constructor(private translateService: TranslateService) { }
 
   errorMessage(message: any){
+    debugger
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: message
+      text: this.translateMessage(message)
     })
     return throwError(() => message);
   }
@@ -22,7 +24,7 @@ export class MessageService {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: message,
+      title: this.translateMessage(message),
       showConfirmButton: false,
       timer: 1500
     })
@@ -32,8 +34,12 @@ export class MessageService {
     Swal.fire({
       icon: 'warning',
       title: 'Oops...',
-      text: message
+      text: this.translateMessage(message)
     })
     return throwError(() => message);
+  }
+
+  private translateMessage(message: any){
+    return this.translateService.instant(message);
   }
 }
