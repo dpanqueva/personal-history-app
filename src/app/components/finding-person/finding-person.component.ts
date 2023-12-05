@@ -48,4 +48,8 @@ export class FindingPersonComponent implements OnInit {
     });
   }
 
+  onClickUnlockProfile():void{
+    this.router.navigate(['payment']);
+  }
+
 }
