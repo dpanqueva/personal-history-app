@@ -30,24 +30,54 @@
                             class="form-label text-align-white">{{'search-document-label'|translate}}</label>
                         <input type="text" class="form-control form-control-sm" id="documentNumberBp"
                             [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
-                            documentNumberBp name="documentNumberBp">
+                            documentNumberBp name="documentNumberBp" maxlength="10" minlength="5">
                         <div *ngIf="documentNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentNumberBp.invalid && (documentNumberBp.dirty || documentNumberBp.touched)">
                                 {{'search-message-error-document-number'|translate}}
                             </div>
                         </div>
+                        <div *ngIf="documentNumberBp.errors?.['maxlength']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-maxlengh-document'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="documentNumberBp.errors?.['minlength']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-minlengh-document'|translate}}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="contactNumberBp"
                             class="form-label text-align-white">{{'search-contact-number-label'|translate}}</label>
-                        <input type="number" class="form-control form-control-sm" id="contactNumberBp"
+                        <input type="text" class="form-control form-control-sm" id="contactNumberBp"
                             [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
-                            name="contactNumberBp">
+                            name="contactNumberBp" pattern="^[0-9]+$" minlength="7" maxlength="10">
                         <div *ngIf="contactNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumberBp.invalid && (contactNumberBp.dirty || contactNumberBp.touched)">
                                 {{'search-message-error-contact-number'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="contactNumberBp.errors?.['maxlength']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-maxlengh-contact-number'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="contactNumberBp.errors?.['minlength']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-minlengh-contact-number'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="contactNumberBp.errors?.['pattern']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-just-number-contact-number'|translate}}
                             </div>
                         </div>
                     </div>

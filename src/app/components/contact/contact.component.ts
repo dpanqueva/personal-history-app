@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit{
   }
 
   contactMe():void{
-    console.log('contact' + this.contact.name);
+   
     this.contactService.createContact(this.contact).subscribe({
       next: (e) => {
         this.messageService.successFullMessage(environment.contacto_registrado_ok);

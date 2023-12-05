@@ -1,4 +1,6 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 *{
     margin:0;
@@ -16,7 +18,7 @@ body{
 
 
 .form-alert-show {
-    height: 25px;
+    height: auto;
     padding: 0px;
 }
 

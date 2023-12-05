@@ -34,9 +34,11 @@ export class FindingPersonComponent implements OnInit {
         this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
           next: (e) => {
             this.messageService.successFullMessage('');
+            this.status = false
           },
           error: (e) =>{
-            this.router.navigate(['']);
+            //this.router.navigate(['']);
+            this.status = false;
           }
         });
       } else {

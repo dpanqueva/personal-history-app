@@ -10,36 +10,44 @@ export class MessageService {
 
   constructor(private translateService: TranslateService) { }
 
-  errorMessage(message: any){
-    debugger
+  errorMessage( property: string){
+    let message = this.translateMessage(property);
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: this.translateMessage(message)
+      text: message
     })
     return throwError(() => message);
   }
 
-  successFullMessage(message: string ){
+  successFullMessage(property: string ){
+    let message = this.translateMessage(property);
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: this.translateMessage(message),
+      title: message,
       showConfirmButton: false,
       timer: 1500
     })
   }
 
-  warningMessage(message: string){
+  warningMessage( property: string){
+    let message = this.translateMessage(property);
     Swal.fire({
       icon: 'warning',
       title: 'Oops...',
-      text: this.translateMessage(message)
+      text: this.translateMessage(property)
     })
     return throwError(() => message);
   }
 
-  private translateMessage(message: any){
-    return this.translateService.instant(message);
+  private translateMessage(property: string){
+    let text = '';
+    this.translateService
+    .get(property)
+    .subscribe((messageTranslated: string) => {
+      text = messageTranslated
+    });
+    return text;
   }
 }

@@ -26,6 +26,9 @@ import { HttpInterceptorInterceptor } from './core/interceptors/http-interceptor
 import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './common/routing/routes.module';
 import { SwitchLanguaguesComponent } from './components/switch-languagues/switch-languagues.component';
+import { MapComponent } from './components/map/map.component';
+import { AfterPaymentComponent } from './components/after-payment/after-payment.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -46,6 +49,9 @@ import { SwitchLanguaguesComponent } from './components/switch-languagues/switch
     FindingPersonComponent,
     HomeComponent,
     SwitchLanguaguesComponent,
+    MapComponent,
+    AfterPaymentComponent,
+    PaymentComponent,
     
   ],
   imports: [

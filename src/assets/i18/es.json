@@ -14,7 +14,12 @@
     "search-select-value-pasport":"Pasaporte",
     "search-message-error-type-document":"Por favor, elija su tipo de documento.",
     "search-message-error-document-number":"Por favor, escriba su número de documento.",
+    "search-message-error-maxlengh-document":"Por favor, su número de documento debe contener máximo 10 caracteres.",
+    "search-message-error-minlengh-document":"Por favor, su número de documento debe contener mínimo 4 caracteres.",
     "search-message-error-contact-number":"Por favor, escriba su número de contacto.",
+    "search-message-error-maxlengh-contact-number":"Por favor, su número de contacto de contener máximo 10 caracteres.",
+    "search-message-error-minlengh-contact-number":"Por favor, su número de contacto de contener mínimo 7 caracteres.",
+    "search-message-error-just-number-contact-number":"Por favor, su número de contacto debe contener solamente números.",
     "search-desc-company":"su socio confiable en investigaciones. Nuestra agencia ofrece apoyo integral en investigaciones penales, disciplinarias, JPM y procesos civiles. Especializados en recolectar y analizar pruebas, respaldamos su defensa legal con precisión técnica. También nos destacamos en la búsqueda de personas y el análisis minucioso de antecedentes judiciales y contravencionales. Confíe en nuestra experiencia para abordar sus necesidades con profesionalismo y confidencialidad. Estamos comprometidos con su búsqueda de la verdad y su defensa legal.",
     "service-title-principal":"Nuestros servicios",
     "service-title-product_1":"Ubicación de Personas Especializada",
@@ -59,6 +64,7 @@
     "contact-mail-error-message-characters":"Por favor, su correo electrónico debe tener al menos 4 caracteres.",
     "contact-mail-error-message-valid":"Por favor, su correo electrónico debe cumplir con un formato válido.",
     "contact-number-label": "Número de contacto",
+    "contact-number-placeholder": "Ingrese su número de contacto",
     "contact-number-message":"Por favor escriba su número de contacto.",
     "contact-number-message-number":"Por favor, su número de contacto debe cumplir con el formato válido, solo números.",
     "contact-message-label": "Mensaje",
@@ -68,5 +74,25 @@
     "contact-message-error-message-characters-max":"Por favor, su mensaje debe tener hasta 400 caracteres.",
     "contact-button-label":"Contactar",
     "contact-net-social-label-principal":"¿Qué dicen de nosotros?",
-    "contact-label-our-mail":"Nuestro correo"
+    "contact-label-our-mail":"Nuestro correo",
+    "loader":"En proceso de búsqueda...",
+    "sweet-alert-error":"Estamos presentando dificultades técnicas.",
+    "sweet-alert-not-found":"Recurso que desea buscar no existe.",
+    "sweet-alert-internal-error":"Ups! Hemos presentado un error inesperado, por favor intente más tarde.",
+    "sweet-alert-regitered-contact":"Gracias por escribirnos, un asesor se contactará con usted.",
+    "attempts-limit-exception":"Ha superado su límite de intentos permitidos. Intentelo nuevamente el día de mañana.",
+    "loader-searching-pages-consulting":"Consultando páginas...",
+    "loader-searching-national-police":"Policia nacional",
+    "loader-searching-registry":"Registraduría",
+    "certified-by-verifik":"Certificado por Verifik.co",
+    "search-module-full-name":"Nombre Completo",
+    "search-module-status":"Estado",
+    "search-module-pending-issues":"Asuntos pendientes",
+    "search-module-roots":"Arraigo",
+    "search-module-department-city":"Departamento / Ciudad", 
+    "search-module-unlock-profile":"Desbloquear perfil",
+    "search-module-pages-consulted":"Páginas consultadas"
+
+
+
 }

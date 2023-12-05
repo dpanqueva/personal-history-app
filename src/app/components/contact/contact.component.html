@@ -9,8 +9,9 @@
                 <form #formContact="ngForm">
                     <div class="mb-3">
                         <label for="nameContact" class="form-label">{{'contact-name-label'|translate}}</label>
-                        <input type="text" name="nameContact" placeholder="{{'contact-name-placeholder'|translate}}" id="nameContact" [(ngModel)]="contact.name" nameContact
-                            #nameContact="ngModel" class="form-control form-control-lg" required minlength="4">
+                        <input type="text" name="nameContact" placeholder="{{'contact-name-placeholder'|translate}}"
+                            id="nameContact" [(ngModel)]="contact.name" nameContact #nameContact="ngModel"
+                            class="form-control form-control-lg" required minlength="4">
                         <div *ngIf="nameContact.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="nameContact.invalid && (nameContact.dirty || nameContact.touched)">
@@ -27,47 +28,62 @@
                     <div class="mb-3">
                         <label for="emailContact" class="form-label">{{'contact-mail-label'|translate}}</label>
                         <input type="email" id="emailContact" class="form-control form-control-lg "
-                            [(ngModel)]="contact.email" name="emailContact" email placeholder="{{'contact-mail-placeholder'|translate}}" minlength="4"
-                            required #email="ngModel" email />
+                            [(ngModel)]="contact.email" name="emailContact" email
+                            placeholder="{{'contact-mail-placeholder'|translate}}" minlength="4" required
+                            #email="ngModel" email
+                            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
                         <div *ngIf="email.errors?.['required']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="email.invalid && (email.dirty || email.touched)">
                                 {{'contact-mail-error-message'|translate}}
                             </div>
                         </div>
                         <div *ngIf="email.errors?.['minlength']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="email.invalid && (email.dirty || email.touched)">
                                 {{'contact-mail-error-message-characters'|translate}}
                             </div>
                         </div>
-                        <div *ngIf="email.errors?.['email']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.errors?.['email'] || email.errors?.['pattern']">
+                            <div class="alert alert-warning form-alert-show"
+                                *ngIf="email.invalid && (email.dirty || email.touched)">
                                 {{'contact-mail-error-message-valid'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="contactNumber" class="form-label">{{'contact-number-label'|translate}}</label>
-                        <input type="number" class="form-control " id="contactNumber" placeholder="3215649877" required
-                            [(ngModel)]="contact.cellphone" name="contactNumber" #contactNumber="ngModel"
-                            contactNumber />
+                        <input type="text" class="form-control form-control-lg"
+                            placeholder="{{'contact-number-placeholder'|translate}}" id="contactNumber"
+                            [(ngModel)]="contact.cellphone" #contactNumber="ngModel" contactNumber required
+                            name="contactNumber" pattern="^[0-9]+$" minlength="7" maxlength="10">
                         <div *ngIf="contactNumber.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
-                                {{'contact-number-message'|translate}}
+                                {{'search-message-error-contact-number'|translate}}
                             </div>
                         </div>
-                        <div *ngIf="contactNumber.errors?.['number']">
-                            <div class="alert alert-warning invalid-feedback form-alert-show"
-                                *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
-                                {{'contact-number-message-number'|translate}}
+                        <div *ngIf="contactNumber.errors?.['maxlength']">
+                            <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                                {{'search-message-error-maxlengh-contact-number'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="contactNumber.errors?.['minlength']">
+                            <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                                {{'search-message-error-minlengh-contact-number'|translate}}
+                            </div>
+                        </div>
+                        <div *ngIf="contactNumber.errors?.['pattern']">
+                            <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                                {{'search-message-error-just-number-contact-number'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="contactDescription" class="form-label">{{'contact-message-label'|translate}}</label>
-                        <textarea class="form-control " id="contactDescription" placeholder="{{'contact-message-placeholder'|translate}}"
-                            required [(ngModel)]="contact.message" name="message" message #message="ngModel"
-                            maxlength="400"
+                        <textarea class="form-control " id="contactDescription"
+                            placeholder="{{'contact-message-placeholder'|translate}}" required
+                            [(ngModel)]="contact.message" name="message" message #message="ngModel" maxlength="300"
                             minlength="5"></textarea>
                         <div *ngIf="message.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
@@ -91,7 +107,8 @@
                     <div class="mb-3" *ngIf="formContact.form.valid">
                         <div class="text-center">
                             <div class="pt-2">
-                                <button class="btn btn-sm btn-primary text-white" (click)="contactMe()">{{'contact-button-label'|translate}}</button>
+                                <button class="btn btn-sm btn-primary text-white"
+                                    (click)="contactMe()">{{'contact-button-label'|translate}}</button>
                             </div>
                         </div>
                     </div>
@@ -101,9 +118,11 @@
                 <h3>{{'contact-net-social-label-principal'|translate}}</h3>
                 <h2>
                     <div class="social-links mt-3">
-                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i class="bi bi-facebook"></i>|</a></span>
-                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i class="bi bi-instagram"></i></a></span>
-                      </div>
+                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i
+                                    class="bi bi-facebook"></i>|</a></span>
+                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i
+                                    class="bi bi-instagram"></i></a></span>
+                    </div>
                 </h2>
 
                 <hr />

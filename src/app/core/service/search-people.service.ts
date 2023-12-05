@@ -28,7 +28,6 @@ export class SearchPeopleService {
   }
 
   searchPeople(search: SearchPeopleJudicial):Observable<any>{
-    console.log(search);
     return this.http.post<any>(this.urlEndPoint, search,{headers: this.addAuthorizationHeader()})
     .pipe(catchError((e) => this.errorsApiGenerate(e)));
   }

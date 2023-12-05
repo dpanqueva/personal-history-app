@@ -18,7 +18,6 @@ export class SwitchLanguaguesComponent implements OnInit {
 
   ngOnInit(): void {
     const defaultLanguage = this.translate.getBrowserLang();
-    console.log(defaultLanguage)
     const selectedOption = this.options.find((option) => option.value === defaultLanguage);
     if (selectedOption) {
       selectedOption.selected = true;

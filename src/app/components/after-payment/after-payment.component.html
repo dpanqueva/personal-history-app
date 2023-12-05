@@ -10,12 +10,10 @@
                         <div class="card-body text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">Jo** Sm**</h5>
-                            <p class="text-muted mb-1">Ce** Ci**</p>
-                            <p class="text-muted mb-4">79**</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary">{{'search-module-unlock-profile'|translate}}</button>
-                            </div>
+                            <h5 class="my-3">John Martinez</h5>
+                            <p class="text-muted mb-1">Cédula Ciiudadanía</p>
+                            <p class="text-muted mb-4">79123516</p>
+
                         </div>
                     </div>
 
@@ -28,7 +26,7 @@
                                     <p class="mb-0">{{'search-module-full-name'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">**** ****</p>
+                                    <p class="text-muted mb-0">JOHN ALEXANDER MARTINEZ PINTO </p>
                                 </div>
                             </div>
                             <hr>
@@ -43,10 +41,20 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">{{'search-module-pending-issues' |translate}}</p>
+                                    <p class="mb-0">{{'search-module-pending-issues'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Usted ******* **** ****</p>
+                                    <p class="text-muted mb-0">NO TIENE ASUNTOS PENDIENTES CON LAS AUTORIDADES
+                                        JUDICIALES\nde conformidad con lo establecido en el artículo 248 de la
+                                        Constitución
+                                        Política de Colombia. \n\nEn cumplimiento de la Sentencia SU-458 del 21 de junio
+                                        de
+                                        2012, proferida por la Honorable Corte Constitucional, la leyenda “NO TIENE
+                                        ASUNTOS
+                                        PENDIENTES CON LAS AUTORIDADES JUDICIALES” aplica para todas aquellas personas
+                                        que
+                                        no registran antecedentes y para quienes la autoridad judicial competente haya
+                                        decretado la extinción de la condena o la prescripción de la pena. </p>
                                 </div>
                             </div>
                             <hr>
@@ -55,7 +63,7 @@
                                     <p class="mb-0">{{'search-module-roots'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">CL* ** * *** * ** * **</p>
+                                    <p class="text-muted mb-0">CLL 60 A SUR # 73-31</p>
                                 </div>
                             </div>
                             <hr>
@@ -64,7 +72,7 @@
                                     <p class="mb-0">{{'search-module-department-city'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">****** / ******</p>
+                                    <p class="text-muted mb-0">BOGOTA D.C. / BOGOTA. D.C.</p>
                                 </div>
                             </div>
                         </div>
@@ -73,31 +81,34 @@
                         <div class="col-md-6">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <div class="map-founded">
-                                    </div>
+                                    <app-map></app-map>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4"><span class="text-primary font-italic me-1">{{'search-module-pages-consulted'|translate}}
-                                            </span>
+                                    <p class="mb-4"><span
+                                            class="text-primary font-italic me-1">{{'search-module-pages-consulted'|translate}}
+                                        </span>
                                     </p>
-                                    <p class="mb-1" style="font-size: .77rem;">{{'loader-searching-national-police'|translate}}</p>
+                                    <p class="mb-1" style="font-size: .77rem;">
+                                        {{'loader-searching-national-police'|translate}}</p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
                                             style="width: 100%;    background-color: #5B7FC2 !important;"></div>
                                     </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'loader-searching-registry'|translate}}</p>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">
+                                        {{'loader-searching-registry'|translate}}</p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
                                             style="width: 100%;    background-color: #5B7FC2 !important;"></div>
                                     </div>
                                     <hr />
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'certified-by-verifik'|translate}}</p>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'certified-by-verifik'|translate}}
+                                    </p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
@@ -112,32 +123,3 @@
         </div>
     </ng-template>
 </section>
-<!--<section class="my-header">
-    <div class="loader-load" *ngIf="status else loadPerson">
-        <app-loader></app-loader>
-    </div>
-
-    <ng-template #loadPerson>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                    <div class="map-founded">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
-                    <div class="card">
-                        <div class="header-card text-center">
-                            <i class="bi bi-person-square profile"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </ng-template>
-</section>-->
