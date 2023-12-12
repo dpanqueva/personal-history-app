@@ -38,14 +38,12 @@
                             </div>
                         </div>
                         <div *ngIf="documentNumberBp.errors?.['maxlength']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
                                 {{'search-message-error-maxlengh-document'|translate}}
                             </div>
                         </div>
                         <div *ngIf="documentNumberBp.errors?.['minlength']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
                                 {{'search-message-error-minlengh-document'|translate}}
                             </div>
                         </div>
@@ -63,34 +61,85 @@
                             </div>
                         </div>
                         <div *ngIf="contactNumberBp.errors?.['maxlength']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
                                 {{'search-message-error-maxlengh-contact-number'|translate}}
                             </div>
                         </div>
                         <div *ngIf="contactNumberBp.errors?.['minlength']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
                                 {{'search-message-error-minlengh-contact-number'|translate}}
                             </div>
                         </div>
                         <div *ngIf="contactNumberBp.errors?.['pattern']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
                                 {{'search-message-error-just-number-contact-number'|translate}}
                             </div>
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
-                        <button class="btn btn-sm btn-primary float-start p-2"
-                            [disabled]="searchPersonForm.form.invalid"
-                            (click)="fnSearchPeople()">{{'search-persona-button-label'|translate}}</button>
+                        <div class="ng-template" *ngIf="searchPersonForm.form.invalid else recaptcha">
+                            <button class="btn btn-sm btn-primary float-start p-2"
+                                [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
 
-                        <button class="btn btn-sm btn-primary float-end p-2" [disabled]="searchPersonForm.form.invalid"
-                            (click)="fnSearchPeopleJudicial()">{{'search-judicial-button-label'|translate}}</button>
+                            <button class="btn btn-sm btn-primary float-end p-2"
+                                [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
+                        </div>
+                        <ng-template #recaptcha>
+                            <button type="button" class="btn btn-sm btn-primary float-start p-2" data-bs-toggle="modal"
+                                data-bs-target="#searchPeople" [disabled]="searchPersonForm.form.invalid">
+                                {{'search-persona-button-label'|translate}}
+                            </button>
+
+                            <button type="button" class="btn btn-sm btn-primary float-end p-2" data-bs-toggle="modal"
+                                data-bs-target="#searchPeopleJudicial" [disabled]="searchPersonForm.form.invalid">
+                                {{'search-judicial-button-label'|translate}}
+                            </button>
+                        </ng-template>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<!-- Modal -->
+<div class="modal fade" id="searchPeople" tabindex="-1" aria-labelledby="searchPeopleLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="searchPeopleLabel">{{'confirm-human'|translate}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <re-captcha (resolved)="resolved($event)"
+                    siteKey="6LdNMy8pAAAAAEaHahX-mvdVHsCwtVcUrmoQp-W0"></re-captcha>
+            </div>
+            <div class="modal-footer">
+                <div class="confirm-human" *ngIf="confirmHuman">
+                    <button class="btn btn-sm btn-primary float-start p-2" [disabled]="searchPersonForm.form.invalid"
+                        data-toggle="modal" data-target="#searchPeople"
+                        (click)="fnSearchPeople()">{{'search-persona-button-label'|translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="searchPeopleJudicial" tabindex="-1" aria-labelledby="searchPeopleJudicialLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="searchPeopleJudicialLabel">{{'confirm-human'|translate}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <re-captcha (resolved)="resolved($event)"
+                    siteKey="6LdNMy8pAAAAAEaHahX-mvdVHsCwtVcUrmoQp-W0"></re-captcha>
+            </div>
+            <div class="modal-footer">
+                <div class="confirm-human" *ngIf="confirmHuman">
+                    <button class="btn btn-sm btn-primary float-end p-2" [disabled]="searchPersonForm.form.invalid"
+                        (click)="fnSearchPeopleJudicial()">{{'search-judicial-button-label'|translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

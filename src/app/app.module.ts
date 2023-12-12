@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { RecaptchaModule } from "ng-recaptcha";
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -67,6 +68,7 @@ import { PaymentComponent } from './components/payment/payment.component';
         deps: [HttpClient]
       }
     }),
+    RecaptchaModule
   ],
   providers: [ContactService, MessageService, SearchPeopleService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]

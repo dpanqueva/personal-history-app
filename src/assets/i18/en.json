@@ -88,9 +88,10 @@
     "search-module-full-name":"Full Name",
     "search-module-status":"Status",
     "search-module-pending-issues":"Pending issues",
-    "search-module-roots":"Roots",
+    "search-module-roots":"Approximate rootedness",
     "search-module-department-city":"Department / City", 
     "search-module-unlock-profile":"Unlock Profile",
     "search-module-pages-consulted":"Pages consulted",
-    "pay-button-pay":"Pay"
+    "pay-button-pay":"Pay",
+    "confirm-human":"Let's confirm that you are not a Robot"
 }

@@ -12,6 +12,7 @@ import { MessageService } from 'src/app/core/service/message.service';
 export class ContactComponent implements OnInit{
 
   contact: Contact = new Contact();
+  captcha: string = "";
 
   constructor(private contactService: ContactService,
     private messageService: MessageService){}
@@ -31,5 +32,12 @@ export class ContactComponent implements OnInit{
         //this.errorBadRequest(e);
       },
     });
+  }
+
+  resolved(response: any){
+    this.captcha= response;
+    if(this.captcha){
+      this.contactMe();
+    }
   }
 }

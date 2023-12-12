@@ -13,7 +13,8 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
 export class SearchComponent implements OnInit {
 
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
-
+  captcha: string = "";
+  confirmHuman: boolean = false;
   constructor(private searchPeopleService: SearchPeopleService,
     private messageService: MessageService
     , private activateRoute: ActivatedRoute
@@ -26,13 +27,18 @@ export class SearchComponent implements OnInit {
   fnSearchPeople(): void {
     this.searchPeople.searchType = 'people';
     this.router.navigate(['search',this.searchPeople.documentType,this.searchPeople.documentNumber,this.searchPeople.cellphone,this.searchPeople.searchType]);
-    
-
   }
 
   fnSearchPeopleJudicial(): void {
     this.searchPeople.searchType = 'judicial';
     this.router.navigate(['search',this.searchPeople.documentType,this.searchPeople.documentNumber,this.searchPeople.cellphone,this.searchPeople.searchType]);
+  }
+
+  resolved(response: any){
+    this.captcha= response;
+    if(this.captcha){
+      this.confirmHuman = true;
+    }
   }
 
 }

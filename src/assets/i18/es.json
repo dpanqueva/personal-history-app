@@ -88,11 +88,12 @@
     "search-module-full-name":"Nombre Completo",
     "search-module-status":"Estado",
     "search-module-pending-issues":"Asuntos pendientes",
-    "search-module-roots":"Arraigo",
+    "search-module-roots":"Arraigo aproximado",
     "search-module-department-city":"Departamento / Ciudad", 
     "search-module-unlock-profile":"Desbloquear perfil",
     "search-module-pages-consulted":"Páginas consultadas",
-    "pay-button-pay":"Pagar"
+    "pay-button-pay":"Pagar",
+    "confirm-human":"Confirmemos que no eres un Robot"
 
 
 
