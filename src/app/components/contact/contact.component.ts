@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit{
 
   contact: Contact = new Contact();
   captcha: string = "";
+  siteKey: string = environment.recaptcha_key;
 
   constructor(private contactService: ContactService,
     private messageService: MessageService){}

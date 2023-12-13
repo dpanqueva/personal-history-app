@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/app/common/env/environment.prod';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
 import { MessageService } from 'src/app/core/service/message.service';
 import { SearchPeopleService } from 'src/app/core/service/search-people.service';
@@ -15,6 +16,8 @@ export class SearchComponent implements OnInit {
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
   captcha: string = "";
   confirmHuman: boolean = false;
+  siteKey: string = environment.recaptcha_key;
+
   constructor(private searchPeopleService: SearchPeopleService,
     private messageService: MessageService
     , private activateRoute: ActivatedRoute
