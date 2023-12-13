@@ -1,4 +1,6 @@
 <section style="background-color: #eee;" class="p-3 my-header">
+  <div *ngIf="estadoTx=='APPROVED'; else elseBlock"><h1>Pago exitoso.</h1></div>
+<ng-template #elseBlock><h1>Pago fallido.</h1></ng-template>
     <div class="loader-load" *ngIf="status else loadPerson">
         <app-loader></app-loader>
     </div>
