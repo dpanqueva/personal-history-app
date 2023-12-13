@@ -69,3 +69,7 @@
     background-color: #000000 !important;
     transition: var(--bs-progress-bar-transition);
 }
+
+.person{
+    font-size: 100px;
+}
