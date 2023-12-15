@@ -93,5 +93,10 @@
     "search-module-unlock-profile":"Unlock Profile",
     "search-module-pages-consulted":"Pages consulted",
     "pay-button-pay":"Pay",
-    "confirm-human":"Let's confirm that you are not a Robot"
+    "confirm-human":"Let's confirm that you are not a Robot",
+    "document_type_min_length":"Please, your document type must contain 2 characters.",
+    "search_type_bad_request":"Please enter the type of query.",
+    "mode-security":"Secure mode",
+    "with-payment-reference":"You have a payment reference. Please try the search again."
+    
 }

@@ -110,20 +110,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <re-captcha (resolved)="resolved($event)"
-                    siteKey="{{siteKey}}"></re-captcha>
-            </div>
-            <div class="modal-footer">
-                <div class="confirm-human" *ngIf="confirmHuman">
-                    <button class="btn btn-sm btn-primary float-start p-2" [disabled]="searchPersonForm.form.invalid"
-                        data-toggle="modal" data-target="#searchPeople"
+                <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
+
+                <div class="confirm-human" id="searchPersonBtn" >
+                    <button class="btn btn-sm btn-primary float-start p-2" *ngIf="confirmHuman"
+                         data-toggle="modal"
                         (click)="fnSearchPeople()">{{'search-persona-button-label'|translate}}</button>
                 </div>
+            </div>
+            <div class="modal-footer">
+                {{'mode-security'|translate}}
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="searchPeopleJudicial" tabindex="-1" aria-labelledby="searchPeopleJudicialLabel" aria-hidden="true">
+<div class="modal fade" id="searchPeopleJudicial" tabindex="-1" aria-labelledby="searchPeopleJudicialLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,14 +133,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <re-captcha (resolved)="resolved($event)"
-                    siteKey="{{siteKey}}"></re-captcha>
-            </div>
-            <div class="modal-footer">
-                <div class="confirm-human" *ngIf="confirmHuman">
-                    <button class="btn btn-sm btn-primary float-end p-2" [disabled]="searchPersonForm.form.invalid"
+                <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
+                <div class="confirm-human" id="searchPeopleJudicialBtn">
+                    <button class="btn btn-sm btn-primary float-start p-2" 
+                      *ngIf="confirmHuman"
                         (click)="fnSearchPeopleJudicial()">{{'search-judicial-button-label'|translate}}</button>
                 </div>
+            </div>
+            <div class="modal-footer">
+                {{'mode-security'|translate}}
             </div>
         </div>
     </div>

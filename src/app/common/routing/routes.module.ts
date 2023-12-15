@@ -6,7 +6,7 @@ import { PaymentComponent } from "src/app/components/payment/payment.component";
 
 export const ROUTES: Routes=[
     {path: '', component: HomeComponent},
-    {path:'search/:documentType/:documentNumber/:cellphone/:searchType', component: FindingPersonComponent},
+    {path:'search/:referenceLocator', component: FindingPersonComponent},
     {path:'payment', component: PaymentComponent},
     {path:'after-payment/:preference/:orderId', component: AfterPaymentComponent}
     

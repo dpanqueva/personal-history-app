@@ -93,8 +93,13 @@
     "search-module-unlock-profile":"Desbloquear perfil",
     "search-module-pages-consulted":"Páginas consultadas",
     "pay-button-pay":"Pagar",
-    "confirm-human":"Confirmemos que no eres un Robot"
+    "confirm-human":"Confirmemos que no eres un Robot",
+    "document-type-min-length":"Por favor, su tipo de documento debe contener 2 caracteres.",
+    "search-type-bad-request":"Por favor, ingrese el tipo de consulta.",
+    "mode-security":"Modo seguro",
+    "with-payment-reference":"Tiene una referencia de pago. Intente la búsqueda de nuevo."
 
+    
 
 
 }

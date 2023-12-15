@@ -13,6 +13,7 @@ export class FindingPersonComponent implements OnInit {
 
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
   status: Boolean = true;
+  reference: string = "";
 
   constructor(
     private searchPeopleService: SearchPeopleService,
@@ -22,33 +23,23 @@ export class FindingPersonComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params => {
-      let documentType = params['documentType'];
-      let documentNumber = params['documentNumber'];
-      let cellphone = params['cellphone']
-      let searchType = params['searchType'];
-      if (documentType && documentNumber && cellphone && cellphone) {
-        this.searchPeople.documentType = documentType;
-        this.searchPeople.documentNumber = documentNumber;
-        this.searchPeople.cellphone = cellphone;
-        this.searchPeople.searchType = searchType;
-        this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
+      const referenceLocator = params['referenceLocator']
+      if (referenceLocator) {
+         this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
           next: (e) => {
-            this.messageService.successFullMessage('');
             this.status = false
+            this.reference = referenceLocator;
           },
-          error: (e) =>{
-            //this.router.navigate(['']);
-            this.status = false;
+          error: (e) => {
+            console.log('error')
+            this.router.navigate(['']);
           }
         });
-      } else {
-        this.router.navigate(['']);
-        this.messageService.warningMessage('Por favor genere una consulta.');
       }
     });
   }
 
-  onClickUnlockProfile():void{
+  onClickUnlockProfile(): void {
     this.router.navigate(['payment']);
   }
 

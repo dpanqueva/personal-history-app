@@ -10,7 +10,8 @@ import { MessageService } from './message.service';
 })
 export class SearchPeopleService {
 
-  private urlEndPoint: string = environment.base_url + 'search-people';
+  private urlEndPoint: string = environment.base_url;
+  errors: string[] = [];
 
   constructor(private http: HttpClient
     ,private messageService: MessageService) { }
@@ -28,14 +29,20 @@ export class SearchPeopleService {
   }
 
   searchPeople(search: SearchPeopleJudicial):Observable<any>{
-    return this.http.post<any>(this.urlEndPoint, search,{headers: this.addAuthorizationHeader()})
+    return this.http.post<any>(this.urlEndPoint.concat('init-search-people'), search,{headers: this.addAuthorizationHeader()})
+    .pipe(catchError((e) => this.errorsApiGenerate(e)));
+  }
+
+  searchPeopleConfirm(referenceLocator: string):Observable<any>{
+    return this.http.get<any>(this.urlEndPoint.concat('intention-search-pay').concat("/").concat(referenceLocator), {headers: this.addAuthorizationHeader()})
     .pipe(catchError((e) => this.errorsApiGenerate(e)));
   }
 
 
   private errorsApiGenerate(e: any) {
+
     if (e.status == 400) {
-      return throwError(() => e);
+      return this.messageService.warningMessageBadRequest(e);
     }
     if (e.status == 404) {
       return this.messageService.errorMessage(
