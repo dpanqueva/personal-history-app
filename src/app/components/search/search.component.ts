@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit {
       next: (e) => {
         const referenceLocator = e.message.referenceLocator;
         if (referenceLocator) {
-          this.router.navigate(['search', referenceLocator, this.searchPeople.searchType]);
+          this.router.navigate(['search', referenceLocator]);
         }
 
       },

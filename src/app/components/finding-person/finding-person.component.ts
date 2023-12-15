@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
-import { MessageService } from 'src/app/core/service/message.service';
 import { SearchPeopleService } from 'src/app/core/service/search-people.service';
 
 @Component({
@@ -16,8 +15,7 @@ export class FindingPersonComponent implements OnInit {
   reference: string = "";
 
   constructor(
-    private searchPeopleService: SearchPeopleService,
-    private messageService: MessageService
+    private searchPeopleService: SearchPeopleService
     , private activateRoute: ActivatedRoute
     , private router: Router) { }
 
@@ -31,7 +29,6 @@ export class FindingPersonComponent implements OnInit {
             this.reference = referenceLocator;
           },
           error: (e) => {
-            console.log('error')
             this.router.navigate(['']);
           }
         });
@@ -40,7 +37,7 @@ export class FindingPersonComponent implements OnInit {
   }
 
   onClickUnlockProfile(): void {
-    this.router.navigate(['payment']);
+    this.router.navigate(['payment',this.reference]);
   }
 
 }
