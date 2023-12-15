@@ -1,5 +1,83 @@
 <section style="background-color: #eee;" class="p-3 my-header">
-    <div class="d-flex justify-content-center mb-2">
-        <button type="button" class="btn btn-primary" (click)="onClickPayment()">{{'pay-button-pay'|translate}}</button>
-    </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+    <form #formClient="ngForm">
+        <div class="mb-3">
+            <label for="nameClient" class="form-label">{{'contact-name-label'|translate}}</label>
+            <input type="text" name="nameClient" placeholder="{{'contact-name-placeholder'|translate}}"
+                id="nameClient" [(ngModel)]="client.name" nameClient #nameClient="ngModel"
+                class="form-control form-control-lg" required minlength="4">
+            <div *ngIf="nameClient.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="nameClient.invalid && (nameClient.dirty || nameClient.touched)">
+                    {{'contact-name-error-message'|translate}}
+                </div>
+            </div>
+            <div *ngIf="nameClient.errors?.['minlength']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="nameClient.invalid && (nameClient.dirty || nameClient.touched)">
+                    {{'contact-name-error-message-characters'|translate}}
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="emailContact" class="form-label">{{'contact-mail-label'|translate}}</label>
+          <input type="email" id="emailContact" class="form-control form-control-lg "
+              [(ngModel)]="client.email" name="emailContact" email
+              placeholder="{{'contact-mail-placeholder'|translate}}" minlength="4" required
+              #email="ngModel" email
+              pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+          <div *ngIf="email.errors?.['required']">
+              <div class="alert alert-warning form-alert-show"
+                  *ngIf="email.invalid && (email.dirty || email.touched)">
+                  {{'contact-mail-error-message'|translate}}
+              </div>
+          </div>
+          <div *ngIf="email.errors?.['minlength']">
+              <div class="alert alert-warning form-alert-show"
+                  *ngIf="email.invalid && (email.dirty || email.touched)">
+                  {{'contact-mail-error-message-characters'|translate}}
+              </div>
+          </div>
+          <div *ngIf="email.errors?.['email'] || email.errors?.['pattern']">
+              <div class="alert alert-warning form-alert-show"
+                  *ngIf="email.invalid && (email.dirty || email.touched)">
+                  {{'contact-mail-error-message-valid'|translate}}
+              </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="contactNumber" class="form-label">{{'contact-number-label'|translate}}</label>
+          <input type="text" class="form-control form-control-lg"
+              placeholder="{{'contact-number-placeholder'|translate}}" id="contactNumber"
+              [(ngModel)]="client.phone" #contactNumber="ngModel" contactNumber required
+              name="contactNumber" pattern="^[0-9]+$" minlength="7" maxlength="10">
+          <div *ngIf="contactNumber.errors?.['required']">
+              <div class="alert alert-warning form-alert-show"
+                  *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
+                  {{'search-message-error-contact-number'|translate}}
+              </div>
+          </div>
+          <div *ngIf="contactNumber.errors?.['maxlength']">
+              <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                  {{'search-message-error-maxlengh-contact-number'|translate}}
+              </div>
+          </div>
+          <div *ngIf="contactNumber.errors?.['minlength']">
+              <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                  {{'search-message-error-minlengh-contact-number'|translate}}
+              </div>
+          </div>
+          <div *ngIf="contactNumber.errors?.['pattern']">
+              <div class="alert alert-warning form-alert-show" *ngIf="contactNumber.invalid">
+                  {{'search-message-error-just-number-contact-number'|translate}}
+              </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 d-md-block p-2">
+          <button type="submit" class="btn btn-sm btn-primary float-start p-2"
+          [disabled]="formClient.form.invalid"
+          (click)="onClickPayment()">{{'pay-button-pay'|translate}}</button>
+      </div>
+    </form>
+</div>
 </section>

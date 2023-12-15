@@ -8,6 +8,7 @@ export const ROUTES: Routes=[
     {path: '', component: HomeComponent},
     {path:'search/:referenceLocator', component: FindingPersonComponent},
     {path:'payment/:referenceLocator', component: PaymentComponent},
-    {path:'after-payment/:preference/:orderId', component: AfterPaymentComponent}
+    {path:'after-payment', component: AfterPaymentComponent}
     
 ];
+
