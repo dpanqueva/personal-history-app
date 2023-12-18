@@ -1,8 +1,8 @@
 export class Contact {
 
-    name?: string;
-    email?: string;
-    cellphone?: number;
-    message?: string;
+    contactName?: string;
+    contactEmail?: string;
+    contactNumber?: number;
+    contactMessage?: string;
 
 }

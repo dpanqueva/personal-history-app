@@ -10,7 +10,7 @@ import { environment } from 'src/app/common/env/environment.prod';
 })
 export class ContactService {
 
-  private urlEndPoint: string = environment.base_url + 'search-people';
+  private urlEndPoint: string = environment.base_url + 'contact-me';
 
   constructor(private http: HttpClient
     ,private messageService: MessageService) { }
@@ -37,7 +37,7 @@ export class ContactService {
 
   private errorsApiGenerate(e: any) {
     if (e.status == 400) {
-      return throwError(() => e);
+      return this.messageService.warningMessageBadRequest(e);
     }
     if (e.status == 404) {
       return this.messageService.errorMessage(

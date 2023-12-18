@@ -27,11 +27,8 @@ export class ContactComponent implements OnInit{
     this.contactService.createContact(this.contact).subscribe({
       next: (e) => {
         this.messageService.successFullMessage(environment.contacto_registrado_ok);
-        
-      },
-      error: (e) => {
-        //this.errorBadRequest(e);
-      },
+        this.contact = new Contact();
+      }
     });
   }
 

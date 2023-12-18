@@ -10,7 +10,7 @@
                     <div class="mb-3">
                         <label for="nameContact" class="form-label">{{'contact-name-label'|translate}}</label>
                         <input type="text" name="nameContact" placeholder="{{'contact-name-placeholder'|translate}}"
-                            id="nameContact" [(ngModel)]="contact.name" nameContact #nameContact="ngModel"
+                            id="nameContact" [(ngModel)]="contact.contactName" nameContact #nameContact="ngModel"
                             class="form-control form-control-lg" required minlength="4">
                         <div *ngIf="nameContact.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <label for="emailContact" class="form-label">{{'contact-mail-label'|translate}}</label>
                         <input type="email" id="emailContact" class="form-control form-control-lg "
-                            [(ngModel)]="contact.email" name="emailContact" email
+                            [(ngModel)]="contact.contactEmail" name="emailContact" email
                             placeholder="{{'contact-mail-placeholder'|translate}}" minlength="4" required
                             #email="ngModel" email
                             pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
@@ -55,7 +55,7 @@
                         <label for="contactNumber" class="form-label">{{'contact-number-label'|translate}}</label>
                         <input type="text" class="form-control form-control-lg"
                             placeholder="{{'contact-number-placeholder'|translate}}" id="contactNumber"
-                            [(ngModel)]="contact.cellphone" #contactNumber="ngModel" contactNumber required
+                            [(ngModel)]="contact.contactNumber" #contactNumber="ngModel" contactNumber required
                             name="contactNumber" pattern="^[0-9]+$" minlength="7" maxlength="10">
                         <div *ngIf="contactNumber.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
@@ -83,7 +83,7 @@
                         <label for="contactDescription" class="form-label">{{'contact-message-label'|translate}}</label>
                         <textarea class="form-control " id="contactDescription"
                             placeholder="{{'contact-message-placeholder'|translate}}" required
-                            [(ngModel)]="contact.message" name="message" message #message="ngModel" maxlength="300"
+                            [(ngModel)]="contact.contactMessage" name="message" message #message="ngModel" maxlength="300"
                             minlength="5"></textarea>
                         <div *ngIf="message.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
