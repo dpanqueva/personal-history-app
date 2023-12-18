@@ -79,7 +79,7 @@
     "sweet-alert-error":"We are experiencing technical difficulties.",
     "sweet-alert-not-found":"The resource you want to search for does not exist.",
     "sweet-alert-internal-error":"Oops! We have presented an unexpected error, please try again later.",
-    "sweet-alert-regitered-contact":"Thank you for writing to us, an advisor will contact you.",
+    "sweet-alert-registered-contact":"Thank you for writing to us, an advisor will contact you.",
     "attempts-limit-exception":"You have exceeded your allowed attempts limit. Try again tomorrow.",
     "loader-searching-pages-consulting":"Consulting pages...",
     "loader-searching-national-police":"National Police",
