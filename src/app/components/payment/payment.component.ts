@@ -47,7 +47,7 @@ export class PaymentComponent implements OnInit{
 
   onClickPayment(): void {
     console.log("Create payment")
-    const promise = this.paymentService.payUBuy();
+    const promise = this.paymentService.payUBuy(this.paymentReference);
     //const {response} = await this.paymentService.createPreference();
     promise.then((product)=>{
       console.log("This is product: "+product);
