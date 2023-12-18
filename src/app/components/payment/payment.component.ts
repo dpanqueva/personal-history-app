@@ -1,8 +1,7 @@
 
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Client } from 'src/app/core/model/client';
-import { ClientService } from 'src/app/core/service/client.service';
+import { PaymentReference } from 'src/app/core/model/payment-reference';
 import { PaymentService } from 'src/app/core/service/payment.service';
 import { SearchPeopleService } from 'src/app/core/service/search-people.service';
 
@@ -15,42 +14,35 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
 export class PaymentComponent implements OnInit{
 
   reference: string = "";
+  paymentReference: PaymentReference = new PaymentReference();
 
   constructor(
      private activateRoute: ActivatedRoute
     , private router: Router
     , private searchPeopleService: SearchPeopleService
-    , private clientService: ClientService,
-     private paymentService: PaymentService) { }
+    , private paymentService: PaymentService) { }
 
     ngOnInit(): void {
       this.activateRoute.params.subscribe(params => {
         const referenceLocator = params['referenceLocator']
         if (referenceLocator) {
-           this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
+           /*this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
             next: (e) => {
               this.reference = referenceLocator;
             },
             error: (e) => {
               this.router.navigate(['']);
             }
-          });
+          });*/
         }
       });
     }
 
     @Output()
-    public onNewClient: EventEmitter<Client> = new EventEmitter();
+    public onNewClient: EventEmitter<PaymentReference> = new EventEmitter();
 
-    public client: Client = {
-      id: '',
-      name: '',
-      email: '',
-      phone: 0
-    };
-
-  emitClient(): void{
-    this.clientService.addClient(this.client);
+   emitClient(): void{
+    this.paymentService.addClient(this.paymentReference);
   }
 
   onClickPayment(): void {
@@ -84,8 +76,8 @@ export class PaymentComponent implements OnInit{
           </html>`;
       console.log(paymentString);
       console.log("Create client")
-      this.client.id=product.signature;
-      this.clientService.addClient(this.client);
+      this.paymentReference.paymentSignarute=product.signature;
+      this.paymentService.addClient(this.paymentReference);
       console.log("This is product: "+product.info.arg);
       //const a=2/0;
       const winUrl = URL.createObjectURL(
