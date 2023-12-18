@@ -13,7 +13,7 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
 export class AfterPaymentComponent implements OnInit{
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
   status: Boolean = true;
-  estadoTx: String= "DECLINED";
+  estadoTx: String= "APPROVED";
 
   constructor(
     private searchPeopleService: SearchPeopleService,
@@ -23,16 +23,24 @@ export class AfterPaymentComponent implements OnInit{
   ngOnInit(): void {
     console.log('Validate PayUSignature...');
     this.validatePayuSignature();
-    this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
-      next: (e) => {
-        //this.messageService.successFullMessage('');
-        this.status = false
-      },
-      error: (e) =>{
-        //this.router.navigate(['']);
-        this.status = false;
-      }
-    });
+
+    if(this.estadoTx==="APPROVED"){
+      //buscar información busqueda personas
+      //antecedentes
+      this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
+        next: (e) => {
+          //this.messageService.successFullMessage('');
+          this.status = false
+        },
+        error: (e) =>{
+          //this.router.navigate(['']);
+          this.status = false;
+        }
+      });
+    }else{
+      console.log("Failed pay .l.")
+    }
+
   }
 
   validatePayuSignature(): void {
@@ -85,6 +93,9 @@ export class AfterPaymentComponent implements OnInit{
     promise.then((response)=>{
       this.estadoTx=response.response;
     })
+    //If es aprobado consume servicio de busqueda o antecedentes.
+    //Si no se le devuelve al usuario pago rechazado.
+    //Si el pago es exitoso, se consulta el microservicio de busqueda de persona o reporte de antecedentes.
   }
 
 
