@@ -2,6 +2,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentReference } from 'src/app/core/model/payment-reference';
+import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
 import { PaymentService } from 'src/app/core/service/payment.service';
 import { SearchPeopleService } from 'src/app/core/service/search-people.service';
 
@@ -26,6 +27,7 @@ export class PaymentComponent implements OnInit{
       this.activateRoute.params.subscribe(params => {
         const referenceLocator = params['referenceLocator']
         if (referenceLocator) {
+          this.reference = referenceLocator;
            /*this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
             next: (e) => {
               this.reference = referenceLocator;
@@ -77,6 +79,9 @@ export class PaymentComponent implements OnInit{
       console.log(paymentString);
       console.log("Create client")
       this.paymentReference.paymentSignarute=product.signature;
+      let searchInit = new SearchPeopleJudicial();
+      searchInit.id = this.reference;
+      this.paymentReference.initSearch = searchInit;
       this.paymentService.addClient(this.paymentReference);
       console.log("This is product: "+product.info.arg);
       //const a=2/0;

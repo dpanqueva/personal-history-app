@@ -1,3 +1,5 @@
+import { SearchPeopleJudicial } from "./search-people-judicial";
+
 export class PaymentReference {
 
     paymentName?:string;
@@ -7,5 +9,5 @@ export class PaymentReference {
     paymentDocymentNumber?:string;
     paymentContact?:string;
     paymentSignarute?:string;
-
+    initSearch?: SearchPeopleJudicial;
 }
