@@ -25,6 +25,7 @@ export class FindingPersonComponent implements OnInit {
       if (referenceLocator) {
          this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
           next: (e) => {
+            this.searchPeople = e;
             this.status = false
             this.reference = referenceLocator;
           },

@@ -28,13 +28,13 @@ export class SearchPeopleService {
     return this.httpHeaders;
   }
 
-  searchPeople(search: SearchPeopleJudicial):Observable<any>{
-    return this.http.post<any>(this.urlEndPoint.concat('init-search-people'), search,{headers: this.addAuthorizationHeader()})
+  searchPeople(search: SearchPeopleJudicial):Observable<SearchPeopleJudicial>{
+    return this.http.post<SearchPeopleJudicial>(this.urlEndPoint.concat('init-search-people'), search,{headers: this.addAuthorizationHeader()})
     .pipe(catchError((e) => this.errorsApiGenerate(e)));
   }
 
-  searchPeopleConfirm(referenceLocator: string):Observable<any>{
-    return this.http.get<any>(this.urlEndPoint.concat('intention-search-pay').concat("/").concat(referenceLocator), {headers: this.addAuthorizationHeader()})
+  searchPeopleConfirm(referenceLocator: string):Observable<SearchPeopleJudicial>{
+    return this.http.get<SearchPeopleJudicial>(this.urlEndPoint.concat('intention-search-pay').concat("/").concat(referenceLocator), {headers: this.addAuthorizationHeader()})
     .pipe(catchError((e) => this.errorsApiGenerate(e)));
   }
 
