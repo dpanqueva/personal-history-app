@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Payment } from '../model/payment';
+import { PaymentReference } from '../model/payment-reference';
 
 
 @Injectable({
@@ -8,9 +9,10 @@ import { Payment } from '../model/payment';
 export class PaymentService {
 
 
-  async payUBuy():Promise<any> {
-    const resp= await fetch('http://localhost:8080/v1/payment/create-payu-payment?email=john1992alex@gmail.com', {
+  async payUBuy(paymentReference: PaymentReference):Promise<any> {
+    const resp= await fetch('http://localhost:8080/api/v1/invexdijin/create-payu-payment', {
          method: 'POST',
+         body: JSON.stringify(paymentReference),
          headers: {
              "Content-type": "application/json",
              "Access-Control-Allow-Origin": "*"

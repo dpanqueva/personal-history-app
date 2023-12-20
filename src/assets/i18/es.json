@@ -89,11 +89,31 @@
     "search-module-status":"Estado",
     "search-module-pending-issues":"Asuntos pendientes",
     "search-module-roots":"Arraigo",
-    "search-module-department-city":"Departamento / Ciudad", 
+    "search-module-department-city":"Departamento / Ciudad",
     "search-module-unlock-profile":"Desbloquear perfil",
     "search-module-pages-consulted":"Páginas consultadas",
-    "pay-button-pay":"Pagar"
-
-
-
+    "pay-button-pay":"Pagar",
+    "confirm-human":"Confirmemos que no eres un Robot",
+    "document-type-min-length":"Por favor, su tipo de documento debe contener 2 caracteres.",
+    "search-type-bad-request":"Por favor, ingrese el tipo de consulta.",
+    "mode-security":"Modo seguro",
+    "with-payment-reference":"Tiene una referencia de pago. Intente la búsqueda de nuevo.",
+    "payment-reference-first-name":"Primer nombre",
+    "payment-reference-first-last-name":"Primer apellido",
+    "payment-reference-first-name-placeholder":"Ingrese su primer nombre",
+    "payment-reference-last-name-placeholder":"Ingrese su primer apellido",
+    "payment-reference-first-name-error":"Por favor ingrese su primer nombre.",
+    "payment-reference-first-name-error_min":"Por favor, su primer nombre debe contener mínimo 2 caracteres.",
+    "payment-reference-first-name-error_max":"Por favor, su tipo de documento debe contener máximo 50 caracteres.",
+    "payment-reference-products-title":"Sus productos",
+    "payment-reference-document-number-placeholder":"Ingrese su número de documento",
+    "payment-reference-products-principal-products-label":"Producto principal",
+    "payment-reference-products-principal-what-will":"¿Qué obtendrá?",
+    "payment-reference-products-principal-what-will-desc":"Un reporte consolidado con toda su información.",
+    "payment-reference-products-detail-payment-title":"Información de pago",
+    "payment-reference-products-detail-payment-label":"Detalle",
+    "payment-reference-products-detail-payment-subtotal":"Subtotal:",
+    "payment-reference-products-detail-payment-vat":"IVA 19%:",
+    "payment-reference-products-detail-payment-total":"Total a pagar:",
+    "payment-complete-pay":"Complete su pago"
 }

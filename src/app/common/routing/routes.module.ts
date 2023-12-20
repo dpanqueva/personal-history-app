@@ -8,6 +8,6 @@ export const ROUTES: Routes=[
     {path: '', component: HomeComponent},
     {path:'search/:documentType/:documentNumber/:cellphone/:searchType', component: FindingPersonComponent},
     {path:'payment', component: PaymentComponent},
-    {path:'after-payment', component: AfterPaymentComponent}
+    {path:'after-payment/*', component: AfterPaymentComponent}
 
 ];

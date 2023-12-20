@@ -1,4 +1,198 @@
 <section style="background-color: #eee;" class="p-3 my-header">
+  <div class="container">
+      <h3 class="text-center">{{'payment-complete-pay'|translate}}</h3>
+      <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
+              <form #payForm="ngForm">
+                  <div class="form-group">
+                      <label for="paymentDocumentType"
+                          class="form-label text-align-white">{{'search-type-document-label'|
+                          translate}}</label>
+                      <select class="form-control form-control-sm form-select-sm" id="paymentDocumentType"
+                          maxlength="2" minlength="2" aria-label="Default select example" required
+                          [(ngModel)]="paymentReference.paymentDocumentType" #paymentDocumentType="ngModel"
+                          paymentDocumentType name="paymentDocumentType">
+                          <option value="CC" selected>{{'search-select-value-cc'| translate}}</option>
+                          <option value="PA">{{'search-select-value-pasport'|translate}}</option>
+                      </select>
+                      <div *ngIf="paymentDocumentType.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentDocumentType.invalid && (paymentDocumentType.dirty || paymentDocumentType.touched)">
+                              {{'search-message-error-type-document'| translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentDocumentType.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentDocumentType.invalid && (paymentDocumentType.dirty || paymentDocumentType.touched)">
+                              {{'search-message-error-type-document_max'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentDocumentType.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentDocumentType.invalid && (paymentDocumentType.dirty || paymentDocumentType.touched)">
+                              {{'search-message-error-type-document_min'|translate}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="paymentDocymentNumber"
+                          class="form-label">{{'search-document-label'|translate}}</label>
+                      <input type="text" class="form-control" id="paymentDocymentNumber"
+                          placeholder="{{'payment-reference-document-number-placeholder'|translate}}" required
+                          name="paymentDocymentNumber" #paymentDocymentNumber="ngModel" paymentDocymentNumber
+                          [(ngModel)]="paymentReference.paymentDocumentNumber" maxlength="10" minlength="5">
+                      <div *ngIf="paymentDocymentNumber.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentDocymentNumber.invalid && (paymentDocymentNumber.dirty || paymentDocymentNumber.touched)">
+                              {{'search-message-error-document-number'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentDocymentNumber.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentDocymentNumber.invalid">
+                              {{'search-message-error-maxlengh-document'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentDocymentNumber.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentDocymentNumber.invalid">
+                              {{'search-message-error-minlengh-document'|translate}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstName" class="form-label">{{'payment-reference-first-name'|translate}}</label>
+                      <input type="text" class="form-control" id="firstName"
+                          placeholder="{{'payment-reference-first-name-placeholder'|translate}}" required
+                          name="firstName" #firstName="ngModel" firstName [(ngModel)]="paymentReference.paymentName"
+                          maxlength="50" minlength="2">
+                      <div *ngIf="firstName.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                              {{'payment-reference-first-name-error'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="firstName.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="firstName.invalid">
+                              {{'payment-reference-first-name-error_max'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="firstName.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="firstName.invalid">
+                              {{'payment-reference-first-name-error_min'|translate}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="lastName"
+                          class="form-label">{{'payment-reference-first-last-name'|translate}}</label>
+                      <input type="text" class="form-control" id="lastName"
+                          placeholder="{{'payment-reference-last-name-placeholder'|translate}}" required
+                          name="lastName" #lastName="ngModel" lastName [(ngModel)]="paymentReference.paymentLastName"
+                          maxlength="50" minlength="2">
+                      <div *ngIf="lastName.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                              Por favor ingrese su primer apellido
+                          </div>
+                      </div>
+                      <div *ngIf="lastName.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="lastName.invalid">
+                              Por favor, su primer apellido solamente debe contener hasta 50 caracteres como maximo.
+                          </div>
+                      </div>
+                      <div *ngIf="lastName.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="lastName.invalid">
+                              Por favor, su primer apellido debe contener 2 caracteres como minimo.
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="paymentEmail" class="form-label">{{'contact-mail-label'|translate}}</label>
+                      <input type="email" class="form-control" id="paymentEmail"
+                          placeholder="{{'contact-mail-placeholder'|translate}}" required name="paymentEmail"
+                          #paymentEmail="ngModel" paymentEmail [(ngModel)]="paymentReference.paymentEmail"
+                          maxlength="50" minlength="4"
+                          pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+                      <div *ngIf="paymentEmail.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentEmail.invalid && (paymentEmail.dirty || paymentEmail.touched)">
+                              {{'contact-mail-error-message'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentEmail.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentEmail.invalid">
+                              {{'contact-mail-error-message-characters_max'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentEmail.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentEmail.invalid">
+                              {{'contact-mail-error-message-characters'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentEmail.errors?.['pattern']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentEmail.invalid">
+                              {{'contact-mail-error-message-valid'|translate}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="paymentContact"
+                          class="form-label">{{'search-contact-number-label'|translate}}</label>
+                      <input type="text" class="form-control" id="paymentContact"
+                          placeholder="{{'contact-number-placeholder'|translate}}" required name="paymentContact"
+                          #paymentContact="ngModel" paymentContact pattern="^[0-9]+$"
+                          [(ngModel)]="paymentReference.paymentContact" maxlength="10" minlength="7">
+                      <div *ngIf="paymentContact.errors?.['required']">
+                          <div class="alert alert-warning form-alert-show"
+                              *ngIf="paymentContact.invalid && (paymentContact.dirty || paymentContact.touched)">
+                              {{'contact-number-message'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentContact.errors?.['maxlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentContact.invalid">
+                              {{'contact-number-error-message-characters-max'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentContact.errors?.['minlength']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentContact.invalid">
+                              {{'contact-number-error-message-characters'|translate}}
+                          </div>
+                      </div>
+                      <div *ngIf="paymentContact.errors?.['pattern']">
+                          <div class="alert alert-warning form-alert-show" *ngIf="paymentContact.invalid">
+                              {{'contact-number-message-number'|translate}}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="d-grid gap-2 d-md-block p-2">
+                      <button type="submit" class="btn btn-sm btn-primary float-start p-2"
+                          [disabled]="payForm.form.invalid"
+                          (click)="onClickPayment()">{{'pay-button-pay'|translate}}</button>
+                  </div>
+              </form>
+          </div>
+          <div class="col-lg-6 d-flex flex-column pt-4 pt-lg-0 order-1 order-lg-2">
+              <h4 class="text-center">{{'payment-reference-products-title' | translate}}</h4>
+              <div class="card text-bg-primary mb-3">
+                  <div class="card-header">{{'payment-reference-products-principal-products-label'|translate}}</div>
+                  <div class="card-body">
+                      <h5 class="card-title">{{'payment-reference-products-principal-what-will'|translate}}</h5>
+                      <p class="card-text">{{'payment-reference-products-principal-what-will-desc'|translate}}</p>
+                  </div>
+              </div>
+              <div class="card text-bg-light mb-3">
+                  <div class="card-header">{{'payment-reference-products-detail-payment-title'|translate}}</div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{'payment-reference-products-detail-payment-label'|translate}}</h5>
+                    <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}} $15.000</p>
+                    <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} $2.850</p>
+                    <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} $17850</p>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--<section style="background-color: #eee;" class="p-3 my-header">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
     <form #formClient="ngForm">
         <div class="mb-3">
@@ -80,4 +274,4 @@
       </div>
     </form>
 </div>
-</section>
+</section>-->

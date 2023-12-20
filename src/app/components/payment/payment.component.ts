@@ -4,6 +4,8 @@ import { ClientService } from '../../core/service/client.service';
 import { Client } from 'src/app/core/model/client';
 import { v4 as uuid } from 'uuid';
 import { PaymentService } from 'src/app/core/service/payment.service';
+import { PaymentReference } from 'src/app/core/model/payment-reference';
+import { InitSearch } from 'src/app/core/model/init-search';
 
 @Component({
   selector: 'app-payment',
@@ -17,23 +19,36 @@ export class PaymentComponent {
     private clientService: ClientService,
     private paymentService: PaymentService) {}
 
-    @Output()
-    public onNewClient: EventEmitter<Client> = new EventEmitter();
+  @Output()
+  public onNewClient: EventEmitter<PaymentReference> = new EventEmitter();
 
-    public client: Client = {
-      id: '',
-      name: '',
-      email: '',
-      phone: 0
-    };
+  public client: Client = {
+    id: '',
+    name: '',
+    email: '',
+    phone: 0
+  };
 
-  emitClient(): void{
-    this.clientService.addClient(this.client);
+  public initSearch: InitSearch = {
+    id: "abcdefghijklmonpqrstvwxyz"
   }
 
+  public paymentReference: PaymentReference = {
+    paymentName: '',
+    paymentLastName: '',
+    paymentEmail: '',
+    paymentDocumentType: '',
+    paymentDocumentNumber: '',
+    paymentContact: '',
+    paymentSignature: 'abcd',
+    paymentStatus: "APPROVED",
+    initSearch: this.initSearch
+  };
+
   onClickPayment(): void {
-    console.log("Create payment")
-    const promise = this.paymentService.payUBuy();
+    console.log("Create payment");
+    console.log(this.paymentReference);
+    const promise = this.paymentService.payUBuy(this.paymentReference);
     //const {response} = await this.paymentService.createPreference();
     promise.then((product)=>{
       console.log("This is product: "+product);
@@ -61,10 +76,10 @@ export class PaymentComponent {
             </body>
           </html>`;
       console.log(paymentString);
-      console.log("Create client")
-      this.client.id=product.signature;
-      this.clientService.addClient(this.client);
-      console.log("This is product: "+product.info.arg);
+      //console.log("Create client")
+      //this.paymentReference.paymentSignature=product.signature;
+      //this.clientService.addClient(this.paymentReference);
+      //console.log("This is product: "+product.info.arg);
       //const a=2/0;
       const winUrl = URL.createObjectURL(
           new Blob([paymentString], { type: "text/html" })
