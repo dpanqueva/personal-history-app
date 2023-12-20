@@ -1,6 +1,7 @@
 export const environment ={
     production: true,
-    base_url: 'http://localhost:9001/api/v1/invexdijin/',
+    base_url_init: 'http://localhost:8083/api/v1/invexdijin/',
+    base_url_payment: 'http://localhost:8081/api/v1/invexdijin/',
     mensaje_error: 'sweet-alert-error',
     mensaje_no_encontrado: 'sweet-alert-not-found',
     mensaje_internal_error: 'sweet-alert-internal-error',

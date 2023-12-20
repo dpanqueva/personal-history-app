@@ -49,6 +49,9 @@ export class PaymentComponent implements OnInit{
 
   onClickPayment(): void {
     console.log("Create payment")
+    let searchInit = new SearchPeopleJudicial();
+    searchInit.id = this.reference;
+    this.paymentReference.initSearch = searchInit;
     const promise = this.paymentService.payUBuy(this.paymentReference);
     //const {response} = await this.paymentService.createPreference();
     promise.then((product)=>{
@@ -77,17 +80,15 @@ export class PaymentComponent implements OnInit{
             </body>
           </html>`;
       console.log(paymentString);
+      //console.log("This is product: "+product.info.arg);
       console.log("Create client")
       this.paymentReference.paymentSignarute=product.signature;
-      let searchInit = new SearchPeopleJudicial();
-      searchInit.id = this.reference;
-      this.paymentReference.initSearch = searchInit;
       this.paymentService.addClient(this.paymentReference);
       console.log("This is product: "+product.info.arg);
       //const a=2/0;
-      const winUrl = URL.createObjectURL(
-          new Blob([paymentString], { type: "text/html" })
-      );
+      const winUrl = URL.createObjectURL(new Blob([paymentString],
+        { type: "text/html" }));
+        window.open(winUrl, '_blank');
 
       window.location.href = winUrl;
 

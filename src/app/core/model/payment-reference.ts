@@ -6,7 +6,7 @@ export class PaymentReference {
     paymentLastName?:string;
     paymentEmail?:string;
     paymentDocumentType?:string;
-    paymentDocymentNumber?:string;
+    paymentDocumentNumber?:string;
     paymentContact?:string;
     paymentSignarute?:string;
     initSearch?: SearchPeopleJudicial;

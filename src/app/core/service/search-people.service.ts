@@ -10,7 +10,7 @@ import { MessageService } from './message.service';
 })
 export class SearchPeopleService {
 
-  private urlEndPoint: string = environment.base_url;
+  private urlEndPoint: string = environment.base_url_init;
   errors: string[] = [];
 
   constructor(private http: HttpClient
@@ -54,7 +54,7 @@ export class SearchPeopleService {
         environment.mensaje_internal_error
       );
     }
-    
+
     return this.messageService.errorMessage(environment.mensaje_error);
   }
 }

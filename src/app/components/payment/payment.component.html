@@ -40,7 +40,7 @@
                         <input type="text" class="form-control" id="paymentDocymentNumber"
                             placeholder="{{'payment-reference-document-number-placeholder'|translate}}" required
                             name="paymentDocymentNumber" #paymentDocymentNumber="ngModel" paymentDocymentNumber
-                            [(ngModel)]="paymentReference.paymentDocymentNumber" maxlength="10" minlength="5">
+                            [(ngModel)]="paymentReference.paymentDocumentNumber" maxlength="10" minlength="5">
                         <div *ngIf="paymentDocymentNumber.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="paymentDocymentNumber.invalid && (paymentDocymentNumber.dirty || paymentDocymentNumber.touched)">

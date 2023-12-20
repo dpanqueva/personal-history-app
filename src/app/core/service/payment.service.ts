@@ -10,12 +10,12 @@ import { PaymentReference } from '../model/payment-reference';
 })
 export class PaymentService {
 
-  url: string = environment.base_url;
+  url: string = environment.base_url_payment;
 
   constructor(private http: HttpClient) { }
 
   async payUBuy(payment: PaymentReference): Promise<any> {
-    const resp = await fetch(this.url.concat('/create-payu-payment'), {
+    const resp = await fetch(this.url.concat('create-payu-payment'), {
       method: 'POST',
       body: JSON.stringify(payment),
       headers: {
@@ -29,7 +29,7 @@ export class PaymentService {
   }
 
   async validatePayment(payment: Payment): Promise<any> {
-    const resp = await fetch(this.url.concat('/validate-signature'), {
+    const resp = await fetch(this.url.concat('validate-signature'), {
       method: 'POST',
       body: JSON.stringify(payment),
       headers: {
@@ -43,7 +43,7 @@ export class PaymentService {
   }
 
   addClient(payment: PaymentReference): void {
-    this.http.post(this.url.concat('create-payment'), payment).subscribe((data) => {
+    this.http.post(this.url.concat('create-client'), payment).subscribe((data) => {
       console.log('Data received: ', data);
       console.log('Payment saved sucessfull');
     });

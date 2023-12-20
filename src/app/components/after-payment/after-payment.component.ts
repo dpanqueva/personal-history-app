@@ -23,7 +23,7 @@ export class AfterPaymentComponent implements OnInit{
   ngOnInit(): void {
     console.log('Validate PayUSignature...');
     this.validatePayuSignature();
-    this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
+    /*this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
       next: (e) => {
         //this.messageService.successFullMessage('');
         this.status = false
@@ -32,7 +32,7 @@ export class AfterPaymentComponent implements OnInit{
         //this.router.navigate(['']);
         this.status = false;
       }
-    });
+    });*/
   }
 
   validatePayuSignature(): void {

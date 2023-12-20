@@ -10,7 +10,7 @@ import { environment } from 'src/app/common/env/environment.prod';
 })
 export class ContactService {
 
-  private urlEndPoint: string = environment.base_url + 'contact-me';
+  private urlEndPoint: string = environment.base_url_init + 'contact-me';
 
   constructor(private http: HttpClient
     ,private messageService: MessageService) { }
