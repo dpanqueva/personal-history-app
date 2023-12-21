@@ -8,6 +8,6 @@ export class PaymentReference {
     paymentDocumentType?:string;
     paymentDocumentNumber?:string;
     paymentContact?:string;
-    paymentSignarute?:string;
+    paymentSignature?:string;
     initSearch?: SearchPeopleJudicial;
 }

@@ -94,7 +94,7 @@
     "search-module-status":"Status",
     "search-module-pending-issues":"Pending issues",
     "search-module-roots":"Approximate rootedness",
-    "search-module-department-city":"Department / City", 
+    "search-module-department-city":"Department / City",
     "search-module-unlock-profile":"Unlock Profile",
     "search-module-pages-consulted":"Pages consulted",
     "pay-button-pay":"Pay",
@@ -120,5 +120,6 @@
     "payment-reference-products-detail-payment-subtotal":"Subtotal:",
     "payment-reference-products-detail-payment-vat":"VAT:",
     "payment-reference-products-detail-payment-total":"Total to pay:",
-    "payment-complete-pay":"Complete your payment"
+    "payment-complete-pay":"Complete your payment",
+    "with-payment-reference-status":"The reference already has a payment status. Try again."
 }

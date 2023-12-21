@@ -94,7 +94,7 @@
     "search-module-status":"Estado",
     "search-module-pending-issues":"Asuntos pendientes",
     "search-module-roots":"Arraigo aproximado",
-    "search-module-department-city":"Departamento / Ciudad", 
+    "search-module-department-city":"Departamento / Ciudad",
     "search-module-unlock-profile":"Desbloquear perfil",
     "search-module-pages-consulted":"Páginas consultadas",
     "pay-button-pay":"Pagar",
@@ -120,6 +120,7 @@
     "payment-reference-products-detail-payment-subtotal":"Subtotal:",
     "payment-reference-products-detail-payment-vat":"IVA 19%:",
     "payment-reference-products-detail-payment-total":"Total a pagar:",
-    "payment-complete-pay":"Complete su pago"
+    "payment-complete-pay":"Complete su pago",
+    "with-payment-reference-status":"La referencia ya tiene un estado de pago. Intenta de nuevo."
 }
 

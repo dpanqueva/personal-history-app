@@ -3,6 +3,7 @@ import { Payment } from '../model/payment';
 import { environment } from 'src/app/common/env/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { PaymentReference } from '../model/payment-reference';
+import { ConsolidatedResponse } from '../model/consolidated-response';
 
 
 @Injectable({
@@ -28,7 +29,7 @@ export class PaymentService {
     return data;
   }
 
-  async validatePayment(payment: Payment): Promise<any> {
+  async validatePayment(payment: Payment): Promise<ConsolidatedResponse> {
     const resp = await fetch(this.url.concat('validate-signature'), {
       method: 'POST',
       body: JSON.stringify(payment),

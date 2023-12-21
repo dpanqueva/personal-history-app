@@ -60,7 +60,7 @@ export class MapComponent {
   private buildLatLon(map: any, address: string): void {
     const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
     console.log(geocodeUrl);
-    debugger
+
     this.http.get(geocodeUrl).subscribe((data: any) => {
       if (data.length > 0) {
         const result = data[0];

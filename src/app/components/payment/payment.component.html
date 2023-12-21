@@ -164,9 +164,14 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
-                        <button type="submit" class="btn btn-sm btn-primary float-start p-2"
-                            [disabled]="payForm.form.invalid"
-                            (click)="onClickPayment()">{{'pay-button-pay'|translate}}</button>
+                      <div class="mb-3" *ngIf="payForm.form.valid">
+                        <div class="text-center">
+                            <div class="pt-2">
+                                <re-captcha (resolved)="resolved($event)"
+                                    siteKey="{{siteKey}}"></re-captcha>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </form>
             </div>

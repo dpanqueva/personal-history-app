@@ -1,6 +1,7 @@
 
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/app/common/env/environment.prod';
 import { PaymentReference } from 'src/app/core/model/payment-reference';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
 import { PaymentService } from 'src/app/core/service/payment.service';
@@ -16,6 +17,8 @@ export class PaymentComponent implements OnInit{
 
   reference: string = "";
   paymentReference: PaymentReference = new PaymentReference();
+  siteKey: string = environment.recaptcha_key;
+  captcha: string = "";
 
   constructor(
      private activateRoute: ActivatedRoute
@@ -45,6 +48,13 @@ export class PaymentComponent implements OnInit{
 
    emitClient(): void{
     this.paymentService.addClient(this.paymentReference);
+  }
+
+  resolved(response: any) {
+    this.captcha = response;
+    if (this.captcha) {
+   this.onClickPayment();
+    }
   }
 
   onClickPayment(): void {
@@ -82,9 +92,9 @@ export class PaymentComponent implements OnInit{
       console.log(paymentString);
       //console.log("This is product: "+product.info.arg);
       console.log("Create client")
-      this.paymentReference.paymentSignarute=product.signature;
+      this.paymentReference.paymentSignature=product.signature;
       this.paymentService.addClient(this.paymentReference);
-      console.log("This is product: "+product.info.arg);
+      //console.log("This is product: "+product.info.arg);
       //const a=2/0;
       const winUrl = URL.createObjectURL(new Blob([paymentString],
         { type: "text/html" }));

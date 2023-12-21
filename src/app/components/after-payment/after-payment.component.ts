@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ConsolidatedResponse } from 'src/app/core/model/consolidated-response';
 import { Payment } from 'src/app/core/model/payment';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
 import { PaymentService } from 'src/app/core/service/payment.service';
@@ -13,7 +14,8 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
 export class AfterPaymentComponent implements OnInit{
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
   status: Boolean = true;
-  estadoTx: String= "DECLINED";
+  estadoTx: string= 'DECLINED';
+  consolidatedResponse: ConsolidatedResponse = new ConsolidatedResponse();
 
   constructor(
     private searchPeopleService: SearchPeopleService,
@@ -83,7 +85,14 @@ export class AfterPaymentComponent implements OnInit{
     console.log(payment);
     const promise = this.paymentService.validatePayment(payment);
     promise.then((response)=>{
-      this.estadoTx=response.response;
+      console.log(response)
+      if(response.transStatus === undefined){
+        this.estadoTx='DECLINED';
+      }else{
+        let statusTx: string = response.transStatus as string;
+        this.estadoTx=statusTx;
+        this.consolidatedResponse=response;
+      }
     })
   }
 
