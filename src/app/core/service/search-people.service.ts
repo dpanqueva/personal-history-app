@@ -38,6 +38,11 @@ export class SearchPeopleService {
     .pipe(catchError((e) => this.errorsApiGenerate(e)));
   }
 
+  searchPayConfirmStatus(referenceLocator: string):Observable<SearchPeopleJudicial>{
+    return this.http.get<SearchPeopleJudicial>(this.urlEndPoint.concat('intention-pay').concat("/").concat(referenceLocator), {headers: this.addAuthorizationHeader()})
+    .pipe(catchError((e) => this.errorsApiGenerate(e)));
+  }
+
 
   private errorsApiGenerate(e: any) {
 

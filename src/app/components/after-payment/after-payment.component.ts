@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConsolidatedResponse } from 'src/app/core/model/consolidated-response';
 import { Payment } from 'src/app/core/model/payment';
 import { SearchPeopleJudicial } from 'src/app/core/model/search-people-judicial';
@@ -20,21 +20,28 @@ export class AfterPaymentComponent implements OnInit{
   constructor(
     private searchPeopleService: SearchPeopleService,
     private paymentService: PaymentService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute,
+    private router: Router
+    ){}
 
   ngOnInit(): void {
     console.log('Validate PayUSignature...');
-    this.validatePayuSignature();
-    /*this.searchPeopleService.searchPeople(this.searchPeople).subscribe({
-      next: (e) => {
-        //this.messageService.successFullMessage('');
-        this.status = false
-      },
-      error: (e) =>{
-        //this.router.navigate(['']);
-        this.status = false;
+    this.route.params.subscribe(params => {
+      const referenceLocator = params['referenceLocator']
+      if (referenceLocator) {
+        this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
+          next: (e) => {
+            this.validatePayuSignature();
+          },
+          error: (e) =>{
+            debugger
+            this.router.navigate(['']);
+          }
+        });
       }
-    });*/
+    });
+    
+    
   }
 
   validatePayuSignature(): void {
