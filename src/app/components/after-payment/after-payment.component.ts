@@ -11,18 +11,19 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
   templateUrl: './after-payment.component.html',
   styleUrls: ['./after-payment.component.css']
 })
-export class AfterPaymentComponent implements OnInit{
+export class AfterPaymentComponent implements OnInit {
   searchPeople: SearchPeopleJudicial = new SearchPeopleJudicial();
   status: Boolean = true;
-  estadoTx: string= 'DECLINED';
+  estadoTx: string = 'DECLINED';
   consolidatedResponse: ConsolidatedResponse = new ConsolidatedResponse();
+  location: string = '4.5981206,-74.0786184';
 
   constructor(
     private searchPeopleService: SearchPeopleService,
     private paymentService: PaymentService,
     private route: ActivatedRoute,
     private router: Router
-    ){}
+  ) { }
 
   ngOnInit(): void {
     console.log('Validate PayUSignature...');
@@ -32,16 +33,17 @@ export class AfterPaymentComponent implements OnInit{
         this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
           next: (e) => {
             this.validatePayuSignature();
+            this.buildLocation();
+
           },
-          error: (e) =>{
-            debugger
+          error: (e) => {
             this.router.navigate(['']);
           }
         });
       }
     });
-    
-    
+
+
   }
 
   validatePayuSignature(): void {
@@ -91,19 +93,27 @@ export class AfterPaymentComponent implements OnInit{
     };
     console.log(payment);
     const promise = this.paymentService.validatePayment(payment);
-    promise.then((response)=>{
+    promise.then((response) => {
       console.log(response)
-      if(response.transStatus === undefined){
-        this.estadoTx='DECLINED';
-      }else{
+      if (response.transStatus === undefined) {
+        this.estadoTx = 'DECLINED';
+      } else {
         let statusTx: string = response.transStatus as string;
-        this.estadoTx=statusTx;
-        this.consolidatedResponse=response;
+        this.estadoTx = statusTx;
+        this.consolidatedResponse = response;
       }
     })
   }
 
-
+  buildLocation() {
+    let locationG = this.consolidatedResponse.geometry?.location;
+    if (locationG) {
+      if (locationG.lat && locationG.lng) {
+        return locationG.lat + "," + locationG.lng;
+      }
+    }
+    return this.location;
+  }
 
 
 }
