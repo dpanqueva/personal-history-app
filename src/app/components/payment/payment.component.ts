@@ -76,6 +76,8 @@ export class PaymentComponent {
             </body>
           </html>`;
       console.log(paymentString);
+c
+      //console.log("This is product: "+product.info.arg);
       //console.log("Create client")
       //this.paymentReference.paymentSignature=product.signature;
       //this.clientService.addClient(this.paymentReference);

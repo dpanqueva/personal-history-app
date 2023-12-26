@@ -10,7 +10,7 @@ export class PaymentService {
 
 
   async payUBuy(paymentReference: PaymentReference):Promise<any> {
-    const resp= await fetch('http://localhost:8080/api/v1/invexdijin/create-payu-payment', {
+    const resp= await fetch('http://localhost:8081/api/v1/invexdijin/create-payu-payment', {
          method: 'POST',
          body: JSON.stringify(paymentReference),
          headers: {
