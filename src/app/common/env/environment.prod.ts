@@ -6,6 +6,6 @@ export const environment ={
     mensaje_no_encontrado: 'sweet-alert-not-found',
     mensaje_internal_error: 'sweet-alert-internal-error',
     contacto_registrado_ok: 'sweet-alert-registered-contact',
-    recaptcha_key:"6LcqUS8pAAAAAIyGtEZavwjGUqW5n8jL4an47zFJ"
+    recaptcha_key:"6LfIuT0pAAAAADNOmlwFxNSkvSmGd-Qdjf53sGAM"
 
 }
