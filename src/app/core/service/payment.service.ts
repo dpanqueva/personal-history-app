@@ -45,8 +45,6 @@ export class PaymentService {
 
   addClient(payment: PaymentReference): void {
     this.http.post(this.url.concat('create-client'), payment).subscribe((data) => {
-      console.log('Data received: ', data);
-      console.log('Payment saved sucessfull');
     });
   }
 

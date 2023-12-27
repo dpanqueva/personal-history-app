@@ -26,7 +26,6 @@ export class AfterPaymentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('Validate PayUSignature...');
     this.route.params.subscribe(params => {
       const referenceLocator = params['referenceLocator']
       if (referenceLocator) {

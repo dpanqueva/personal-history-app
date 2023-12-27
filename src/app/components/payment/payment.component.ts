@@ -13,7 +13,7 @@ import { SearchPeopleService } from 'src/app/core/service/search-people.service'
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit{
+export class PaymentComponent implements OnInit {
 
   reference: string = "";
   paymentReference: PaymentReference = new PaymentReference();
@@ -21,51 +21,48 @@ export class PaymentComponent implements OnInit{
   captcha: string = "";
 
   constructor(
-     private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute
     , private router: Router
     , private searchPeopleService: SearchPeopleService
     , private paymentService: PaymentService) { }
 
-    ngOnInit(): void {
-      this.activateRoute.params.subscribe(params => {
-        const referenceLocator = params['referenceLocator']
-        if (referenceLocator) {
-          this.reference = referenceLocator;
-           /*this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
-            next: (e) => {
-              this.reference = referenceLocator;
-            },
-            error: (e) => {
-              this.router.navigate(['']);
-            }
-          });*/
-        }
-      });
-    }
+  ngOnInit(): void {
+    this.activateRoute.params.subscribe(params => {
+      const referenceLocator = params['referenceLocator']
+      if (referenceLocator) {
+        this.reference = referenceLocator;
+        this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
+          next: (e) => {
+            this.reference = referenceLocator;
+          },
+          error: (e) => {
+            this.router.navigate(['']);
+          }
+        });
+      }
+    });
+  }
 
-    @Output()
-    public onNewClient: EventEmitter<PaymentReference> = new EventEmitter();
+  @Output()
+  public onNewClient: EventEmitter<PaymentReference> = new EventEmitter();
 
-   emitClient(): void{
+  emitClient(): void {
     this.paymentService.addClient(this.paymentReference);
   }
 
   resolved(response: any) {
     this.captcha = response;
     if (this.captcha) {
-   this.onClickPayment();
+      this.onClickPayment();
     }
   }
 
   onClickPayment(): void {
-    console.log("Create payment")
     let searchInit = new SearchPeopleJudicial();
     searchInit.id = this.reference;
     this.paymentReference.initSearch = searchInit;
     const promise = this.paymentService.payUBuy(this.paymentReference);
-    //const {response} = await this.paymentService.createPreference();
-    promise.then((product)=>{
-      console.log("This is product: "+product);
+    promise.then((product) => {
 
       let paymentString = `
           <html>
@@ -89,21 +86,15 @@ export class PaymentComponent implements OnInit{
               <script type="text/javascript">document.getElementById("payu_form").submit();</script>
             </body>
           </html>`;
-      console.log(paymentString);
-      //console.log("This is product: "+product.info.arg);
-      console.log("Create client")
-      this.paymentReference.paymentSignature=product.signature;
+      this.paymentReference.paymentSignature = product.signature;
       this.paymentService.addClient(this.paymentReference);
-      //console.log("This is product: "+product.info.arg);
-      //const a=2/0;
       const winUrl = URL.createObjectURL(new Blob([paymentString],
         { type: "text/html" }));
-        window.open(winUrl, '_blank');
+      window.open(winUrl, '_blank');
 
       window.location.href = winUrl;
 
     });
   }
-    //this.router.navigate(['after-payment',123456,32131231]);
 }
 
