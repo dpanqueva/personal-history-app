@@ -29,6 +29,7 @@ export class AfterPaymentComponent implements OnInit {
     this.route.params.subscribe(params => {
       const referenceLocator = params['referenceLocator']
       if (referenceLocator) {
+        debugger
         this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
           next: (e) => {
             this.validatePayuSignature();

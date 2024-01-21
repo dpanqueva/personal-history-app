@@ -86,7 +86,7 @@ export class PaymentComponent implements OnInit {
               <script type="text/javascript">document.getElementById("payu_form").submit();</script>
             </body>
           </html>`;
-      this.paymentReference.paymentSignature = product.signature;
+      this.paymentReference.paymentSignature = product.referenceCode;
       this.paymentService.addClient(this.paymentReference);
       const winUrl = URL.createObjectURL(new Blob([paymentString],
         { type: "text/html" }));
