@@ -25,7 +25,7 @@ export class PaymentService {
       }
     });
     const data = await resp.json();
-    console.log(data);
+    
     return data;
   }
 
@@ -39,7 +39,7 @@ export class PaymentService {
       }
     });
     const data = await resp.json();
-    console.log(data);
+    
     return data;
   }
 

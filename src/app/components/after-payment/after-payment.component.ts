@@ -29,7 +29,6 @@ export class AfterPaymentComponent implements OnInit {
     this.route.params.subscribe(params => {
       const referenceLocator = params['referenceLocator']
       if (referenceLocator) {
-        debugger
         this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
           next: (e) => {
             this.validatePayuSignature();
@@ -91,10 +90,9 @@ export class AfterPaymentComponent implements OnInit {
       TX_TAX_ADMINISTRATIVE_FEE_RETURN_BASE: this.route.snapshot.queryParams['TX_TAX_ADMINISTRATIVE_FEE_RETURN_BASE'],
       processingDate: this.route.snapshot.queryParams['processingDate']
     };
-    console.log(payment);
+
     const promise = this.paymentService.validatePayment(payment);
     promise.then((response) => {
-      console.log(response)
       if (response.transStatus === undefined) {
         this.estadoTx = 'DECLINED';
       } else {

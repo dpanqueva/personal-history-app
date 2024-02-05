@@ -57,7 +57,7 @@ import { PaymentComponent } from './components/payment/payment.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES,{useHash:true}),
     FormsModule,
     HttpClientModule,
     NgxUiLoaderModule,
