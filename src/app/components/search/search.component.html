@@ -85,65 +85,17 @@
                                 [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
                         </div>
                         <ng-template #recaptcha>
-                            <button type="button" class="btn btn-sm btn-primary float-start p-2" data-bs-toggle="modal"
-                                data-bs-target="#searchPeople" [disabled]="searchPersonForm.form.invalid">
-                                {{'search-persona-button-label'|translate}}
-                            </button>
-
-                            <button type="button" class="btn btn-sm btn-primary float-end p-2" data-bs-toggle="modal"
-                                data-bs-target="#searchPeopleJudicial" [disabled]="searchPersonForm.form.invalid">
-                                {{'search-judicial-button-label'|translate}}
-                            </button>
+                            <button class="btn btn-sm btn-primary float-start p-2" (click)="fnSearchPeople()"
+                                [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
+                            <button class="btn btn-sm btn-primary float-end p-2" (click)="fnSearchPeopleJudicial()"
+                                [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
                         </ng-template>
+                    </div>
+                    <div class="d-grid gap-2 d-md-block p-2" *ngIf="confirmHuman">
+                        <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
-<!-- Modal -->
-<div class="modal fade" id="searchPeople" tabindex="-1" aria-labelledby="searchPeopleLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="searchPeopleLabel">{{'confirm-human'|translate}}</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
-
-                <div class="confirm-human" id="searchPersonBtn" >
-                    <button class="btn btn-sm btn-primary float-start p-2" *ngIf="confirmHuman"
-                         data-toggle="modal"
-                        (click)="fnSearchPeople()">{{'search-persona-button-label'|translate}}</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                {{'mode-security'|translate}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="searchPeopleJudicial" tabindex="-1" aria-labelledby="searchPeopleJudicialLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="searchPeopleJudicialLabel">{{'confirm-human'|translate}}</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
-
-                <div class="confirm-human" id="searchPersonBtn" >
-                    <button class="btn btn-sm btn-primary float-start p-2" *ngIf="confirmHuman"
-                         data-toggle="modal"
-                        (click)="fnSearchPeopleJudicial()">{{'search-judicial-button-label'|translate}}</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                {{'mode-security'|translate}}
-            </div>
-        </div>
-    </div>
-</div>

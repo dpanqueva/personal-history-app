@@ -5,12 +5,4 @@ $(document).ready(function() {
       });
       $('.counter').addClass('animated fadeInDownBig');
       $('h3').addClass('animated fadeIn');
-
-      $('#searchPersonBtn').on('click',function(){
-        $('#searchPeople').modal('hide');
-      });
-
-      $('#searchPeopleJudicialBtn').on('click',function(){
-        $('#searchPeopleJudicial').modal('hide');
-      });
 });
