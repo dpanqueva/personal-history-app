@@ -9,11 +9,12 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             <i class="bi bi-person person"></i>
-                            <h5 class="my-3">{{searchPeople.firstName}}</h5>
-                            <p class="text-muted mb-1">{{searchPeople.lastName}}</p>
-                            <p class="text-muted mb-4">{{searchPeople.documentNumber}}</p>
+                            <h5 class="my-3 font-weight-bold"><b>{{searchPeople.firstName}}</b></h5>
+                            <p class="text-muted mb-1"><b>{{searchPeople.lastName}}</b></p>
+                            <p class="text-muted mb-4"><b>{{searchPeople.documentNumber}}</b></p>
                             <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary" (click)="onClickUnlockProfile()">{{'search-module-unlock-profile'|translate}}</button>
+                                <button type="button" class="btn btn-primary"
+                                    (click)="onClickUnlockProfile()">{{'search-module-unlock-profile'|translate}}</button>
                             </div>
                         </div>
                     </div>
@@ -27,7 +28,7 @@
                                     <p class="mb-0">{{'search-module-full-name'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{searchPeople.fullName}}</p>
+                                    <p class="text-muted mb-0"><b>{{searchPeople.fullName}}</b></p>
                                 </div>
                             </div>
                             <hr>
@@ -36,7 +37,7 @@
                                     <p class="mb-0">{{'search-module-status'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Vigente</p>
+                                    <p class="text-muted mb-0"><b>Vigente</b></p>
                                 </div>
                             </div>
                             <hr>
@@ -45,7 +46,7 @@
                                     <p class="mb-0">{{'search-module-pending-issues' |translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Usted ******* **** ****</p>
+                                    <p class="text-muted mb-0"><b>Usted ******* **** ****</b></p>
                                 </div>
                             </div>
                             <hr>
@@ -54,7 +55,9 @@
                                     <p class="mb-0">{{'search-module-roots'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">CL* ** * *** * ** * **</p>
+                                    <b>
+                                        <p class="text-muted mb-0">CL* ** * *** * ** * **</p>
+                                    </b>
                                 </div>
                             </div>
                             <hr>
@@ -63,7 +66,9 @@
                                     <p class="mb-0">{{'search-module-department-city'|translate}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">****** / ******</p>
+                                    <b>
+                                        <p class="text-muted mb-0">****** / ******</p>
+                                    </b>
                                 </div>
                             </div>
                         </div>
@@ -80,27 +85,31 @@
                         <div class="col-md-6">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4"><span class="text-primary font-italic me-1">{{'search-module-pages-consulted'|translate}}
-                                            </span>
+                                    <p class="mb-4"><span
+                                            class="text-primary font-italic me-1">{{'search-module-pages-consulted'|translate}}
+                                        </span>
                                     </p>
-                                    <p class="mb-1" style="font-size: .77rem;">{{'loader-searching-national-police'|translate}}</p>
+                                    <p class="mb-1" style="font-size: .77rem;">
+                                        {{'loader-searching-national-police'|translate}}</p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
-                                            style="width: 100%;    background-color: #5B7FC2 !important;"></div>
+                                            style="width: 100%;    background-color: #000080 !important;"></div>
                                     </div>
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'loader-searching-registry'|translate}}</p>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">
+                                        {{'loader-searching-registry'|translate}}</p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
-                                            style="width: 100%;    background-color: #5B7FC2 !important;"></div>
+                                            style="width: 100%;    background-color: #000080 !important;"></div>
                                     </div>
                                     <hr />
-                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'certified-by-verifik'|translate}}</p>
+                                    <p class="mt-4 mb-1" style="font-size: .77rem;">{{'certified-by-verifik'|translate}}
+                                    </p>
                                     <div class="progress" role="progressbar" aria-label="Info example"
                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info text-dark"
-                                            style="width: 100%;     background-color: #5B7FC2 !important;"></div>
+                                            style="width: 100%;     background-color: #000080 !important;"></div>
                                     </div>
                                 </div>
                             </div>

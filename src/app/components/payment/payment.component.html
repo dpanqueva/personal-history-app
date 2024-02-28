@@ -14,6 +14,8 @@
                             paymentDocumentType name="paymentDocumentType">
                             <option value="CC" selected>{{'search-select-value-cc'| translate}}</option>
                             <option value="PA">{{'search-select-value-pasport'|translate}}</option>
+                            <option value="NI">{{'search-select-value-nit'|translate}}</option>
+                            <option value="DE">{{'search-select-value-immigration'|translate}}</option>
                         </select>
                         <div *ngIf="paymentDocumentType.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
@@ -59,49 +61,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="firstName" class="form-label">{{'payment-reference-first-name'|translate}}</label>
+                        <label for="firstName" class="form-label">{{'payment-reference-first-name'|translate}} & {{'payment-reference-first-last-name'|translate}}</label>
                         <input type="text" class="form-control" id="firstName"
                             placeholder="{{'payment-reference-first-name-placeholder'|translate}}" required
                             name="firstName" #firstName="ngModel" firstName [(ngModel)]="paymentReference.paymentName"
-                            maxlength="50" minlength="2">
+                            pattern="^[a-zA-Z]{2,50}\s[a-zA-Z]{2,50}$">
                         <div *ngIf="firstName.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                                 {{'payment-reference-first-name-error'|translate}}
                             </div>
                         </div>
-                        <div *ngIf="firstName.errors?.['maxlength']">
+                        <div *ngIf="firstName.errors?.['pattern']">
                             <div class="alert alert-warning form-alert-show" *ngIf="firstName.invalid">
-                                {{'payment-reference-first-name-error_max'|translate}}
-                            </div>
-                        </div>
-                        <div *ngIf="firstName.errors?.['minlength']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="firstName.invalid">
-                                {{'payment-reference-first-name-error_min'|translate}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName"
-                            class="form-label">{{'payment-reference-first-last-name'|translate}}</label>
-                        <input type="text" class="form-control" id="lastName"
-                            placeholder="{{'payment-reference-last-name-placeholder'|translate}}" required
-                            name="lastName" #lastName="ngModel" lastName [(ngModel)]="paymentReference.paymentLastName"
-                            maxlength="50" minlength="2">
-                        <div *ngIf="lastName.errors?.['required']">
-                            <div class="alert alert-warning form-alert-show"
-                                *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-                                Por favor ingrese su primer apellido
-                            </div>
-                        </div>
-                        <div *ngIf="lastName.errors?.['maxlength']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="lastName.invalid">
-                                Por favor, su primer apellido solamente debe contener hasta 50 caracteres como maximo.
-                            </div>
-                        </div>
-                        <div *ngIf="lastName.errors?.['minlength']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="lastName.invalid">
-                                Por favor, su primer apellido debe contener 2 caracteres como minimo.
+                                {{'payment-reference-first-name-error'|translate}}
                             </div>
                         </div>
                     </div>
@@ -112,6 +85,9 @@
                             #paymentEmail="ngModel" paymentEmail [(ngModel)]="paymentReference.paymentEmail"
                             maxlength="50" minlength="4"
                             pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+                        <div class="alert alert-info" role="alert">
+                            <b> {{'email-information-use'|translate}}</b>
+                        </div>
                         <div *ngIf="paymentEmail.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="paymentEmail.invalid && (paymentEmail.dirty || paymentEmail.touched)">
@@ -164,14 +140,13 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
-                      <div class="mb-3" *ngIf="payForm.form.valid">
-                        <div class="text-center">
-                            <div class="pt-2">
-                                <re-captcha (resolved)="resolved($event)"
-                                    siteKey="{{siteKey}}"></re-captcha>
+                        <div class="mb-3" *ngIf="payForm.form.valid">
+                            <div class="text-center">
+                                <div class="pt-2">
+                                    <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </form>
             </div>
@@ -187,12 +162,13 @@
                 <div class="card text-bg-light mb-3">
                     <div class="card-header">{{'payment-reference-products-detail-payment-title'|translate}}</div>
                     <div class="card-body">
-                      <h5 class="card-title">{{'payment-reference-products-detail-payment-label'|translate}}</h5>
-                      <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}} $15.000</p>
-                      <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} $2.850</p>
-                      <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} $17850</p>
+                        <h5 class="card-title">{{'payment-reference-products-detail-payment-label'|translate}}</h5>
+                        <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}} $15.000
+                        </p>
+                        <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} $2.850</p>
+                        <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} $17850</p>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

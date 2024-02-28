@@ -53,8 +53,16 @@ export class PaymentComponent implements OnInit {
   resolved(response: any) {
     this.captcha = response;
     if (this.captcha) {
+      this.splitFirstNameLastName();
       this.onClickPayment();
     }
+  }
+
+  splitFirstNameLastName(){
+    var completeNameSplit = this.paymentReference.paymentName?.split(" ");
+    if(completeNameSplit && completeNameSplit.length >= 2){
+       this.paymentReference.paymentLastName = completeNameSplit[1];
+    }    
   }
 
   onClickPayment(): void {

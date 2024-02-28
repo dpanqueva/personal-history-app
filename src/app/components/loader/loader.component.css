@@ -57,3 +57,29 @@
 .my-header {
     margin-top: 50px;
 }
+
+.world-around{
+    background: black url('../../../assets/img/sky.png');
+    animation: sky 205s linear alternate;
+}
+
+@keyframes sky {
+    0%{background-position: 0 0;}
+    100%{background-position: 0 100%;}
+}
+
+#earth{
+    background: url('../../../assets/img/world.png') center;
+    background-size: cover;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: earth 5s linear 0s infinite;
+    margin: auto;
+    transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg); 
+}
+
+@keyframes earth {
+    0%{background-position: 0 0;}
+    100%{background-position: 355px 0;}
+}

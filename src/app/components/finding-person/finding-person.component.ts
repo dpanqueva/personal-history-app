@@ -26,8 +26,12 @@ export class FindingPersonComponent implements OnInit {
          this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
           next: (e) => {
             this.searchPeople = e;
-            this.status = false
-            this.reference = referenceLocator;
+            setTimeout(() => {
+              console.log('Ejecutando después de 3 segundos.');
+              this.status = false;
+              this.reference = referenceLocator;
+            }, 3000);
+           
           },
           error: (e) => {
             this.router.navigate(['']);

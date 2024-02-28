@@ -8,5 +8,6 @@ export class SearchPeopleJudicial {
     fullName?:string;
     cellphone?: number;
     searchType?: string;
+    termsConditions?: string;
 
 }

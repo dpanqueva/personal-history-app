@@ -5,6 +5,9 @@
                 <span class="text-align-white fs-5">
                     <span class="fw-bold">INVEXDIJIN</span>, {{'search-desc-company' |translate}}
                 </span>
+                <span class="text-align-white fs-5">
+                    <span class="fw-bold">{{'search-desc-company-legal'|translate}}</span>
+                </span>
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
                 <form #searchPersonForm="ngForm">
@@ -30,7 +33,8 @@
                             class="form-label text-align-white">{{'search-document-label'|translate}}</label>
                         <input type="text" class="form-control form-control-sm" id="documentNumberBp"
                             [(ngModel)]="searchPeople.documentNumber" required #documentNumberBp="ngModel"
-                            documentNumberBp name="documentNumberBp" maxlength="10" minlength="5">
+                            documentNumberBp name="documentNumberBp" maxlength="10" minlength="5"
+                            pattern="^[a-zA-Z0-9]+$">
                         <div *ngIf="documentNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="documentNumberBp.invalid && (documentNumberBp.dirty || documentNumberBp.touched)">
@@ -47,13 +51,18 @@
                                 {{'search-message-error-minlengh-document'|translate}}
                             </div>
                         </div>
+                        <div *ngIf="documentNumberBp.errors?.['pattern']">
+                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
+                                {{'search-message-error-document-number'|translate}}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="contactNumberBp"
                             class="form-label text-align-white">{{'search-contact-number-label'|translate}}</label>
                         <input type="text" class="form-control form-control-sm" id="contactNumberBp"
                             [(ngModel)]="searchPeople.cellphone" #contactNumberBp="ngModel" contactNumberBp required
-                            name="contactNumberBp" pattern="^[0-9]+$" minlength="7" maxlength="10">
+                            name="contactNumberBp" pattern="^([\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}|^\d{10})$">
                         <div *ngIf="contactNumberBp.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="contactNumberBp.invalid && (contactNumberBp.dirty || contactNumberBp.touched)">
@@ -76,18 +85,44 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <input class="form-check-input" type="checkbox" value="" id="termsConditions"
+                            [(ngModel)]="searchPeople.termsConditions" #termsConditions="ngModel" termsConditions
+                            name="termsConditions" aria-describedby="termsConditionsFeedback" required>
+                        <a href="./assets/docs/POLITICA DE TERMINOS Y CONDICIONES PARA EL USO DE LA PLATAFORMA INVEXDIJIN.pdf"
+                            target="_blank" class="text-align-white">{{'search-terms-conditions-label'|translate}}</a> |
+                        <a href="./assets/docs/POLITICA DE TRATAMIENTO DE DATOS PERSONALES.pdf" target="_blank"
+                            class="text-align-white">{{'search-data-treatment-label'|translate}}</a> |
+                        <a href="#" class="text-align-white" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">{{'privacy-agreement'|translate}}</a>
+
+                        <div *ngIf="termsConditions.errors?.['required']">
+                            <div class="alert alert-warning form-alert-show" *ngIf="termsConditions.invalid">
+                                {{'search-terms-conditions-bad-request'|translate}}
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-grid gap-2 d-md-block p-2">
                         <div class="ng-template" *ngIf="searchPersonForm.form.invalid else recaptcha">
-                            <button class="btn btn-sm btn-primary float-start p-2"
-                                [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
+                            <span class="d-inline-block float-start" tabindex="0" data-toggle="tooltip" data-placement="bottom"
+                                title="{{'search-person-desc'|translate}}">
+                                <button class="btn btn-sm btn-primary  p-2"
+                                    [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
+                            </span>
 
-                            <button class="btn btn-sm btn-primary float-end p-2"
-                                [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
+                            <span class="d-inline-block float-end" tabindex="0" data-toggle="tooltip" data-placement="bottom"
+                                title="{{'search-person-judicial-desc'|translate}}">
+                                <button class="btn btn-sm btn-primary p-2"
+                                    [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
+                            </span>
+
                         </div>
                         <ng-template #recaptcha>
                             <button class="btn btn-sm btn-primary float-start p-2" (click)="fnSearchPeople()"
+                            data-toggle="tooltip" data-placement="bottom" title="{{'search-person-desc'|translate}}"
                                 [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
                             <button class="btn btn-sm btn-primary float-end p-2" (click)="fnSearchPeopleJudicial()"
+                            data-toggle="tooltip" data-placement="bottom" title="{{'search-person-judicial-desc'|translate}}"
                                 [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
                         </ng-template>
                     </div>
@@ -97,5 +132,51 @@
                 </form>
             </div>
         </div>
+        <hr />
+        <div class="alert alert-info text-center" role="alert">
+            <p class="font-weight-bold">{{'message-questions-problems'|translate}}</p>
+        </div>
     </div>
 </section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{'privacy-agreement'|translate}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold">{{'privacy-notice-label-principal'|translate}}</p>
+                <p>{{'privacy-notice-desc-principal'|translate}}</p>
+                <p>{{'privacy-notice-desc-label-purpose'|translate}}</p>
+                <p>{{'privacy-notice-desc-label-principal-purpose'|translate}}</p>
+                <ul>
+                    <li>{{'privacy-notice-desc-first-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-second-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-third-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-fourth-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-fifth-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-fifth-purpose'|translate}}</li>
+                    <li>{{'privacy-notice-desc-sixth-purpose'|translate}}</li>
+                </ul>
+                <p class="font-weight-bold">{{'privacy-notice-rights-data-label'|translate}}</p>
+                <p>{{'privacy-notice-rights-data-desc'|translate}}</p>
+                <ul>
+                    <li>{{'privacy-notice-rights-data-desc-first'|translate}}</li>
+                    <li>{{'privacy-notice-rights-data-desc-second'|translate}}</li>
+                    <li>{{'privacy-notice-rights-data-desc-third'|translate}}</li>
+                    <li>{{'privacy-notice-rights-data-desc-fourth'|translate}}</li>
+                    <li>{{'privacy-notice-rights-data-desc-fifth'|translate}}</li>
+                    <li>{{'privacy-notice-rights-data-desc-sixth'|translate}}</li>
+                </ul>
+                <p class="font-weight-bold">{{'privacy-notice-treatment-label'|translate}}</p>
+                <p>{{'privacy-notice-treatment-desc'|translate}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">{{'privacy-agree'|translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

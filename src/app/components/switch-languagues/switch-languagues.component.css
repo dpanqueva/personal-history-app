@@ -1,0 +1,23 @@
+@media (min-width: 1024px) {
+    .languague {
+        padding: 6px;
+        width: 190px;
+        margin-right: 110px;
+    }
+}
+.languague {
+    padding: 6px;
+    width: 190px;
+}
+
+/*
+@media (max-width: 1023px) {
+    .languague {
+        padding: 6px;
+        width: 100%;
+        margin-right: 110px;
+        text-align: center;
+
+
+    }
+}*/
