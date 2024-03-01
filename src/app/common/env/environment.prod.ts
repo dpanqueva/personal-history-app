@@ -1,6 +1,7 @@
 export const environment ={
     production: true,
-    base_url_init: 'https://init-contact-info-v1.fly.dev/api/v1/invexdijin/',
+//    base_url_init: 'https://init-contact-info-v1.fly.dev/api/v1/invexdijin/',
+    base_url_init: 'http://localhost:8081/api/v1/invexdijin/',
     base_url_payment: 'https://ms-payment-gateway-v1.fly.dev/api/v1/invexdijin/',
     mensaje_error: 'sweet-alert-error',
     mensaje_no_encontrado: 'sweet-alert-not-found',

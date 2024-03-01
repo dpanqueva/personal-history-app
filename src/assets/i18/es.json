@@ -93,8 +93,8 @@
     "sweet-alert-registered-contact": "Gracias por escribirnos, un asesor se contactará con usted.",
     "attempts-limit-exception": "Ha superado su límite de intentos permitidos. Intentelo nuevamente el día de mañana.",
     "loader-searching-pages-consulting": "Consultando páginas...",
-    "loader-searching-national-police": "Policia nacional",
-    "loader-searching-registry": "Registraduría",
+    "loader-searching-national-police": "Confirmación Estado",
+    "loader-searching-registry": "Ubicación Confirmada",
     "certified-by-verifik": "Certificado por Verifik.co",
     "search-module-full-name": "Nombre Completo",
     "search-module-status": "Estado",
@@ -102,7 +102,7 @@
     "search-module-roots": "Arraigo aproximado",
     "search-module-department-city": "Departamento / Ciudad",
     "search-module-unlock-profile": "Desbloquear información",
-    "search-module-pages-consulted": "Páginas consultadas",
+    "search-module-pages-consulted": "Consulta exitosa",
     "pay-button-pay": "Pagar",
     "confirm-human": "Confirmemos que no eres un Robot",
     "document-type-min-length": "Por favor, su tipo de documento debe contener 2 caracteres.",
@@ -118,6 +118,7 @@
     "payment-reference-first-name-error_max": "Por favor, su tipo de documento debe contener máximo 50 caracteres.",
     "payment-reference-products-title": "Sus productos",
     "payment-reference-document-number-placeholder": "Ingrese su número de documento",
+    "payment-contact":"Número de contacto",
     "payment-reference-products-principal-products-label": "Producto principal",
     "payment-reference-products-principal-what-will": "¿Qué obtendrá?",
     "payment-reference-products-principal-what-will-desc": "Un reporte consolidado con toda su información.",
@@ -131,9 +132,9 @@
     "complete-payment-reference": "No se pudo completar el estado del pago. Intente nuevamente.",
     "with-out-payment-reference": "El producto no cuenta con una referencia de pago. Intente de nuevo.",
     "privacy-notice-label-principal":"AVISO DE PRIVACIDAD",
-    "privacy-notice-desc-principal": "El presente Aviso de Privacidad establece los términos y condiciones en virtud de los cuales INVEXDIJIN, identificado con NIT 52122297-3, y con domicilio en Bogotá D.C., realizará el tratamiento de sus datos personales.",
+    "privacy-notice-desc-principal": "El presente Aviso de Privacidad establece los términos y condiciones en virtud de los cuales INVEXDIJIN SAS, identificado con NIT 901805130-3, y con domicilio en Bogotá D.C., realizará el tratamiento de sus datos personales.",
     "privacy-notice-desc-label-purpose":"1. TRATAMIENTO Y FINALIDAD:",
-    "privacy-notice-desc-label-principal-purpose":"El tratamiento que realizará INVEXDIJIN, identificado con NIT 52122297-3  con la información personal será el siguiente:",
+    "privacy-notice-desc-label-principal-purpose":"El tratamiento que realizará INVEXDIJIN, identificado con NIT 901805130-3  con la información personal será el siguiente:",
     "privacy-notice-desc-first-purpose": "La recolección, almacenamiento, uso, circulación y supresión de los datos personales para Verificación de identidad.",
     "privacy-notice-desc-second-purpose": "Procesamiento de solicitudes de servicios.",
     "privacy-notice-desc-third-purpose": "Gestión administrativa y contable.",
@@ -155,7 +156,8 @@
     "message-questions-problems":"Contáctenos a nuestro correo, teléfono o WhatsApp  si tiene alguna duda o inconveniente con su consulta.",
     "search-person-desc":"Consulta si un mayor de edad en Colombia está vivo, muerto o cumpliendo una Condena, y en que Departamento, Ciudad, o sector del país puede residir.",
     "search-person-judicial-desc":"Con una sola consulta puedes Verificar Antecedentes Penales, disciplinarios, contractuales, fiscales y de pérdida de investidura.",
-    "email-information-use":"**Importante: El correo se utilizará para enviar la respuesta a su solicitud."
+    "email-information-use":"**Importante: El correo se utilizará para enviar la respuesta a su solicitud.",
+    "adult-information":"Recuerda solo puedes consultar mayores de edad."
 
 
 }
