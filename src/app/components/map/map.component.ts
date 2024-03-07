@@ -13,7 +13,7 @@ import * as leafletControlGeocoder from 'leaflet-control-geocoder';
 export class MapComponent {
 
   @Input('location') location = "4.5981206,-74.0786184";
-  
+
   constructor(private http: HttpClient) { }
 
   ngAfterViewInit(): void {
@@ -24,10 +24,11 @@ export class MapComponent {
     }).addTo(map);
     const markerItem = marker([this.locationMap(0), this.locationMap(1)]).addTo(map);
           markerItem.bindPopup('¡Arraigo aproximado!').openPopup();
-    
+
   }
 
   locationMap(type: number){
+    debugger
     let separateNumbers = this.location.split(',');
     if(type == 0){
       return parseFloat(separateNumbers[0]);

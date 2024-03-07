@@ -16,7 +16,7 @@ export class AfterPaymentComponent implements OnInit {
   status: Boolean = true;
   estadoTx: string = 'DECLINED';
   consolidatedResponse: ConsolidatedResponse = new ConsolidatedResponse();
-  location: string = '4.5981206,-74.0786184';
+  location: string = '4.598067,-74.076022';
 
   constructor(
     private searchPeopleService: SearchPeopleService,
@@ -32,7 +32,7 @@ export class AfterPaymentComponent implements OnInit {
         this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
           next: (e) => {
             this.validatePayuSignature();
-            this.buildLocation();
+            //this.buildLocation();
 
           },
           error: (e) => {
@@ -96,18 +96,24 @@ export class AfterPaymentComponent implements OnInit {
       if (response.transStatus === undefined) {
         this.estadoTx = 'DECLINED';
       } else {
+        debugger
+        console.log(response);
         let statusTx: string = response.transStatus as string;
         this.estadoTx = statusTx;
         this.consolidatedResponse = response;
+        this.buildLocation(this.consolidatedResponse);
+        console.log(this.consolidatedResponse);
       }
     })
   }
 
-  buildLocation() {
-    let locationG = this.consolidatedResponse.geometry?.location;
+  buildLocation(rs: ConsolidatedResponse) {
+    debugger
+    let locationG = rs.geometry?.location;
     if (locationG) {
       if (locationG.lat && locationG.lng) {
-        return locationG.lat + "," + locationG.lng;
+        this.location=locationG.lat + "," + locationG.lng;
+        return this.location;
       }
     }
     return this.location;
