@@ -61,7 +61,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="firstName" class="form-label">{{'payment-reference-first-name'|translate}} & {{'payment-reference-first-last-name'|translate}}</label>
+                        <label for="firstName" class="form-label">{{'payment-reference-first-name'|translate}} &
+                            {{'payment-reference-first-last-name'|translate}}</label>
                         <input type="text" class="form-control" id="firstName"
                             placeholder="{{'payment-reference-first-name-placeholder'|translate}}" required
                             name="firstName" #firstName="ngModel" firstName [(ngModel)]="paymentReference.paymentName"
@@ -111,8 +112,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="paymentContact"
-                            class="form-label">{{'payment-contact'|translate}}</label>
+                        <label for="paymentContact" class="form-label">{{'payment-contact'|translate}}</label>
                         <input type="text" class="form-control" id="paymentContact"
                             placeholder="{{'contact-number-placeholder'|translate}}" required name="paymentContact"
                             #paymentContact="ngModel" paymentContact pattern="^[0-9]+$"
@@ -161,13 +161,36 @@
                 </div>
                 <div class="card text-bg-light mb-3">
                     <div class="card-header">{{'payment-reference-products-detail-payment-title'|translate}}</div>
-                    <div class="card-body">
+                    <div class="people" *ngIf="searchPay.searchType === 'people'; else judicial">
                         <h5 class="card-title">{{'payment-reference-products-detail-payment-label'|translate}}</h5>
-                        <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}} $15.000
-                        </p>
-                        <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} $2.850</p>
-                        <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} $17850</p>
+                        <div class="card-body">
+                            
+                            <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}}
+                               {{'people-payment-reference-products-detail-payment-subtotal-value'|translate}}
+                            </p>
+                            <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} 
+                                {{'people-payment-reference-products-detail-payment-vat-value'|translate}}
+                            </p>
+                            <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} 
+                                {{'people-payment-reference-products-detail-payment-total-value'|translate}}
+                            </p>
+                        </div>
                     </div>
+                    <ng-template #judicial>
+                        <div class="judicial">
+                            <div class="card-body">
+                            <p class="card-text">{{'payment-reference-products-detail-payment-subtotal'|translate}}
+                                {{'judicial-payment-reference-products-detail-payment-subtotal-value'|translate}}
+                             </p>
+                             <p class="card-text">{{'payment-reference-products-detail-payment-vat'|translate}} 
+                                 {{'judicial-payment-reference-products-detail-payment-vat-value'|translate}}
+                             </p>
+                             <p class="card-text">{{'payment-reference-products-detail-payment-total'|translate}} 
+                                 {{'judicial-payment-reference-products-detail-payment-total-value'|translate}}
+                             </p>
+                            </div>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ export class PaymentComponent implements OnInit {
   paymentReference: PaymentReference = new PaymentReference();
   siteKey: string = environment.recaptcha_key;
   captcha: string = "";
+  searchPay: SearchPeopleJudicial = new SearchPeopleJudicial();
 
   constructor(
     private activateRoute: ActivatedRoute
@@ -34,6 +35,7 @@ export class PaymentComponent implements OnInit {
         this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
           next: (e) => {
             this.reference = referenceLocator;
+            this.searchPay = e;
           },
           error: (e) => {
             this.router.navigate(['']);

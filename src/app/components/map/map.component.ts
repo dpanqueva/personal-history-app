@@ -23,16 +23,15 @@ export class MapComponent {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     const markerItem = marker([this.locationMap(0), this.locationMap(1)]).addTo(map);
-          markerItem.bindPopup('¡Arraigo aproximado!').openPopup();
+    markerItem.bindPopup('¡Arraigo aproximado!').openPopup();
 
   }
 
-  locationMap(type: number){
-    debugger
+  locationMap(type: number) {
     let separateNumbers = this.location.split(',');
-    if(type == 0){
+    if (type == 0) {
       return parseFloat(separateNumbers[0]);
-    }else {
+    } else {
       return parseFloat(separateNumbers[1]);
     }
   }

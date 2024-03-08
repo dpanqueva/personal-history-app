@@ -23,15 +23,14 @@ export class FindingPersonComponent implements OnInit {
     this.activateRoute.params.subscribe(params => {
       const referenceLocator = params['referenceLocator']
       if (referenceLocator) {
-         this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
+        this.searchPeopleService.searchPeopleConfirm(referenceLocator).subscribe({
           next: (e) => {
             this.searchPeople = e;
             setTimeout(() => {
-              console.log('Ejecutando después de 3 segundos.');
               this.status = false;
               this.reference = referenceLocator;
             }, 3000);
-           
+
           },
           error: (e) => {
             this.router.navigate(['']);
@@ -42,7 +41,7 @@ export class FindingPersonComponent implements OnInit {
   }
 
   onClickUnlockProfile(): void {
-    this.router.navigate(['payment',this.reference]);
+    this.router.navigate(['payment', this.reference]);
   }
 
 }

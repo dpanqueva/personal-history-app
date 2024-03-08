@@ -157,7 +157,14 @@
     "search-person-desc":"Consulta si un mayor de edad en Colombia está vivo, muerto o cumpliendo una Condena, y en que Departamento, Ciudad, o sector del país puede residir.",
     "search-person-judicial-desc":"Con una sola consulta puedes Verificar Antecedentes Penales, disciplinarios, contractuales, fiscales y de pérdida de investidura.",
     "email-information-use":"**Importante: El correo se utilizará para enviar la respuesta a su solicitud.",
-    "adult-information":"Recuerda solo puedes consultar mayores de edad."
+    "adult-information":"Recuerda solo puedes consultar mayores de edad.",
+    "people-payment-reference-products-detail-payment-total-value": "$11.889",
+    "people-payment-reference-products-detail-payment-subtotal-value":"$9.990",
+    "people-payment-reference-products-detail-payment-vat-value":"$1.899",
+    "judicial-payment-reference-products-detail-payment-total-value": "$23.789",
+    "judicial-payment-reference-products-detail-payment-subtotal-value":"$19.990",
+    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799"
+
 
 
 }

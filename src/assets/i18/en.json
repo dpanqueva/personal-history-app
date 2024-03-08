@@ -157,5 +157,11 @@
     "search-person-desc": "Check if an adult in Colombia is alive, dead or serving a Sentence, and in which Department, City, or sector of the country they can reside.",
     "search-person-judicial-desc": "With a single consultation you can Verify Criminal, disciplinary, contractual, fiscal and loss of investiture records.",
     "email-information-use": "**Important: The email will be used to send the response to your request.",
-    "adult-information": "Remember you can only consult adults."
+    "adult-information": "Remember you can only consult adults.",
+    "people-payment-reference-products-detail-payment-total-value": "$11.889 COP",
+    "people-payment-reference-products-detail-payment-subtotal-value":"$9.990 COP",
+    "people-payment-reference-products-detail-payment-vat-value":"$1.899 COP",
+    "judicial-payment-reference-products-detail-payment-total-value": "$23.789 COP",
+    "judicial-payment-reference-products-detail-payment-subtotal-value":"$19.990 COP",
+    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799 COP"
 }

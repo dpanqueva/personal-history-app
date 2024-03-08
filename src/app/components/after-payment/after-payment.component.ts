@@ -32,8 +32,6 @@ export class AfterPaymentComponent implements OnInit {
         this.searchPeopleService.searchPayConfirmStatus(referenceLocator).subscribe({
           next: (e) => {
             this.validatePayuSignature();
-            //this.buildLocation();
-
           },
           error: (e) => {
             this.router.navigate(['']);
@@ -96,23 +94,19 @@ export class AfterPaymentComponent implements OnInit {
       if (response.transStatus === undefined) {
         this.estadoTx = 'DECLINED';
       } else {
-        debugger
-        console.log(response);
         let statusTx: string = response.transStatus as string;
         this.estadoTx = statusTx;
         this.consolidatedResponse = response;
         this.buildLocation(this.consolidatedResponse);
-        console.log(this.consolidatedResponse);
       }
     })
   }
 
   buildLocation(rs: ConsolidatedResponse) {
-    debugger
     let locationG = rs.geometry?.location;
     if (locationG) {
       if (locationG.lat && locationG.lng) {
-        this.location=locationG.lat + "," + locationG.lng;
+        this.location = locationG.lat + "," + locationG.lng;
         return this.location;
       }
     }
