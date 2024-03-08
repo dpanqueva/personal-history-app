@@ -60,11 +60,11 @@ export class PaymentComponent implements OnInit {
     }
   }
 
-  splitFirstNameLastName(){
+  splitFirstNameLastName() {
     var completeNameSplit = this.paymentReference.paymentName?.split(" ");
-    if(completeNameSplit && completeNameSplit.length >= 2){
-       this.paymentReference.paymentLastName = completeNameSplit[1];
-    }    
+    if (completeNameSplit && completeNameSplit.length >= 2) {
+      this.paymentReference.paymentLastName = completeNameSplit[1];
+    }
   }
 
   onClickPayment(): void {
@@ -100,10 +100,7 @@ export class PaymentComponent implements OnInit {
       this.paymentService.addClient(this.paymentReference);
       const winUrl = URL.createObjectURL(new Blob([paymentString],
         { type: "text/html" }));
-      window.open(winUrl, '_blank');
-
       window.location.href = winUrl;
-
     });
   }
 }
