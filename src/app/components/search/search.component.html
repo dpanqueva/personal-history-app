@@ -1,6 +1,17 @@
 <section class="font-black p-3 my-header" id="search">
     <div class="container world-around">
         <div class="row">
+            <div
+                class="responsive-native col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
+                <div class="alert alert-info text-center" role="alert">
+                    <b>
+                        <p class="font-weight-bold">{{'message-questions-problems'|translate}}</p>
+                    </b>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-3 order-lg-1">
                 <span class="text-align-white fs-5">
                     <span class="fw-bold">INVEXDIJIN</span>, {{'search-desc-company' |translate}}
@@ -8,9 +19,9 @@
                 <span class="text-align-white fs-5">
                     <span class="fw-bold">{{'search-desc-company-legal'|translate}}</span>
                 </span>
-                <div class="alert alert-warning" role="alert">
+                <div class="alert alert-warning no-responsive" role="alert">
                     <b>{{'adult-information'|translate}}</b>
-                  </div>
+                </div>
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-2">
                 <form #searchPersonForm="ngForm">
@@ -83,13 +94,13 @@
                             </div>
                         </div>
                         <div *ngIf="contactNumberBp.errors?.['pattern']">
-                            <div class="alert alert-warning form-alert-show" *ngIf="documentNumberBp.invalid">
+                            <div class="alert alert-warning form-alert-show">
                                 {{'search-message-error-just-number-contact-number'|translate}}
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input class="form-check-input" type="checkbox" value="" id="termsConditions"
+                    <div class="form-group form-check">
+                        <input class="form-check-input terms-conditions" type="checkbox" value="" id="termsConditions"
                             [(ngModel)]="searchPeople.termsConditions" #termsConditions="ngModel" termsConditions
                             name="termsConditions" aria-describedby="termsConditionsFeedback" required>
                         <a href="./assets/docs/POLITICA DE TERMINOS Y CONDICIONES PARA EL USO DE LA PLATAFORMA INVEXDIJIN.pdf"
@@ -107,14 +118,14 @@
                     </div>
                     <div class="d-grid gap-2 d-md-block p-2">
                         <div class="ng-template" *ngIf="searchPersonForm.form.invalid else recaptcha">
-                            <span class="d-inline-block float-start" tabindex="0" data-toggle="tooltip" data-placement="bottom"
-                                title="{{'search-person-desc'|translate}}">
+                            <span class="d-inline-block float-start" tabindex="0" data-toggle="tooltip"
+                                data-placement="bottom" title="{{'search-person-desc'|translate}}">
                                 <button class="btn btn-sm btn-primary  p-2"
                                     [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
                             </span>
 
-                            <span class="d-inline-block float-end" tabindex="0" data-toggle="tooltip" data-placement="bottom"
-                                title="{{'search-person-judicial-desc'|translate}}">
+                            <span class="d-inline-block float-end" tabindex="0" data-toggle="tooltip"
+                                data-placement="bottom" title="{{'search-person-judicial-desc'|translate}}">
                                 <button class="btn btn-sm btn-primary p-2"
                                     [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
                             </span>
@@ -122,13 +133,18 @@
                         </div>
                         <ng-template #recaptcha>
                             <button class="btn btn-sm btn-primary float-start p-2" (click)="fnSearchPeople()"
-                            data-toggle="tooltip" data-placement="bottom" title="{{'search-person-desc'|translate}}"
+                                data-toggle="tooltip" data-placement="bottom" title="{{'search-person-desc'|translate}}"
                                 [disabled]="searchPersonForm.form.invalid">{{'search-persona-button-label'|translate}}</button>
                             <button class="btn btn-sm btn-primary float-end p-2" (click)="fnSearchPeopleJudicial()"
-                            data-toggle="tooltip" data-placement="bottom" title="{{'search-person-judicial-desc'|translate}}"
+                                data-toggle="tooltip" data-placement="bottom"
+                                title="{{'search-person-judicial-desc'|translate}}"
                                 [disabled]="searchPersonForm.form.invalid">{{'search-judicial-button-label'|translate}}</button>
                         </ng-template>
                     </div>
+                    <div class="alert alert-warning responsive-native" role="alert">
+                        <b>{{'adult-information'|translate}}</b>
+                    </div>
+                    <hr />
                     <div class="d-grid gap-2 d-md-block p-2" *ngIf="confirmHuman">
                         <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
                     </div>
@@ -136,7 +152,7 @@
             </div>
         </div>
         <hr />
-        <div class="alert alert-info text-center" role="alert">
+        <div class="alert alert-info text-center no-responsive" role="alert">
             <p class="font-weight-bold">{{'message-questions-problems'|translate}}</p>
         </div>
     </div>
