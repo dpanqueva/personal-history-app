@@ -4,11 +4,11 @@
     "menu-about": "About us",
     "menu-alliances": "Alliances",
     "menu-contact": "Contact",
-    "search-title-label": "Check here your judicial past or search for people",
+    "search-title-label": "Consult people search engine or Judicial Past (Background).",
     "search-type-document-label": "Document type",
     "search-document-label": "Document number",
     "search-contact-number-label": "Contact number or email",
-    "search-persona-button-label": "Consult Person",
+    "search-persona-button-label": "Search Person",
     "search-judicial-button-label": "Consult judicial past",
     "search-select-value-cc": "Document",
     "search-select-value-pasport": "Passport",
@@ -28,7 +28,7 @@
     "search-message-error-just-number-contact-number": "Please, your contact must contain only numbers, up to 10 characters or have a valid email format.",
     "search-desc-company": "your reliable partner in investigations. Our agency offers comprehensive support in criminal, disciplinary investigations, JPM and civil proceedings. Specialized in collecting and analyzing evidence, we support your legal defense with technical precision. We also stand out in the search for people and the thorough analysis of judicial and contravention records. Trust our experience to address your needs with professionalism and confidentiality. We are committed to your search for the truth and your legal defense.",
     "search-desc-company-legal": "(Accredited as a Researcher under Resolution No. 20204440049597 SuperVigilancia)",
-    "search-terms-conditions-bad-request": "Please, you must accept the terms and conditions and our data processing policy to perform the search.",
+    "search-terms-conditions-bad-request": "Remember to click and accept terms and conditions.",
     "service-title-principal": "Our services",
     "service-title-product_1": "Specialized People Location",
     "service-title-product_2": "Background Checks, Records and Notes",
@@ -163,5 +163,6 @@
     "people-payment-reference-products-detail-payment-vat-value":"$1.899 COP",
     "judicial-payment-reference-products-detail-payment-total-value": "$23.789 COP",
     "judicial-payment-reference-products-detail-payment-subtotal-value":"$19.990 COP",
-    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799 COP"
+    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799 COP",
+    "email-contact-label":"gerencia@invexdijin.com"
 }

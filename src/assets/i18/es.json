@@ -4,11 +4,11 @@
     "menu-about": "Quiénes somos",
     "menu-alliances": "Alianzas",
     "menu-contact": "Contacto",
-    "search-title-label": "Consulte aquí su pasado judicial o la búsqueda de personas",
+    "search-title-label": "Consulta  buscador de personas o Pasado Judicial (Antecedentes).",
     "search-type-document-label": "Tipo de documento",
     "search-document-label": "Número de documento",
     "search-contact-number-label": "Número o correo de contacto",
-    "search-persona-button-label": "Consultar Persona",
+    "search-persona-button-label": "Buscar Persona",
     "search-judicial-button-label": "Consultar pasado judicial",
     "search-select-value-cc": "Cédula de ciudadanía",
     "search-select-value-pasport": "Pasaporte",
@@ -28,7 +28,7 @@
     "search-message-error-just-number-contact-number": "Por favor, su contacto debe contener solamente números, hasta 10 caracteres o tener un formato de correo valido.",
     "search-desc-company": "su socio confiable en investigaciones. Nuestra agencia ofrece apoyo integral en investigaciones penales, disciplinarias, JPM y procesos civiles. Especializados en recolectar y analizar pruebas, respaldamos su defensa legal con precisión técnica. También nos destacamos en la búsqueda de personas y el análisis minucioso de antecedentes judiciales y contravencionales. Confíe en nuestra experiencia para abordar sus necesidades con profesionalismo y confidencialidad. Estamos comprometidos con su búsqueda de la verdad y su defensa legal.",
     "search-desc-company-legal": "(Acreditado como Investigador bajo Resolución No. 20204440049597 SuperVigilancia)",
-    "search-terms-conditions-bad-request": "Por favor, debe aceptar los términos y condiciones y nuestra política de tratamiento de datos para realizar la búsqueda.",
+    "search-terms-conditions-bad-request": "Recuerda hacer click y aceptar términos y condiciones.",
     "service-title-principal": "Nuestros servicios",
     "service-title-product_1": "Ubicación de Personas Especializada",
     "service-title-product_2": "Verificación de Antecedentes, Registros y Anotaciones",
@@ -163,7 +163,8 @@
     "people-payment-reference-products-detail-payment-vat-value":"$1.899",
     "judicial-payment-reference-products-detail-payment-total-value": "$23.789",
     "judicial-payment-reference-products-detail-payment-subtotal-value":"$19.990",
-    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799"
+    "judicial-payment-reference-products-detail-payment-vat-value":"$3.799",
+    "email-contact-label":"gerencia@invexdijin.com"
 
 
 

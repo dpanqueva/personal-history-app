@@ -83,8 +83,8 @@
                         <label for="contactDescription" class="form-label">{{'contact-message-label'|translate}}</label>
                         <textarea class="form-control " id="contactDescription"
                             placeholder="{{'contact-message-placeholder'|translate}}" required
-                            [(ngModel)]="contact.contactMessage" name="message" message #message="ngModel" maxlength="300"
-                            minlength="5"></textarea>
+                            [(ngModel)]="contact.contactMessage" name="message" message #message="ngModel"
+                            maxlength="300" minlength="5"></textarea>
                         <div *ngIf="message.errors?.['required']">
                             <div class="alert alert-warning form-alert-show"
                                 *ngIf="message.invalid && (message.dirty || message.touched)">
@@ -107,8 +107,7 @@
                     <div class="mb-3" *ngIf="formContact.form.valid">
                         <div class="text-center">
                             <div class="pt-2">
-                                <re-captcha (resolved)="resolved($event)"
-                                    siteKey="{{siteKey}}"></re-captcha>
+                                <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
                             </div>
                         </div>
                     </div>
@@ -118,10 +117,14 @@
                 <h3>{{'contact-net-social-label-principal'|translate}}</h3>
                 <h2>
                     <div class="social-links mt-3">
-                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i
-                                    class="bi bi-facebook"></i>|</a></span>
-                        <span class="social-links-attr"> <a href="#" class="text-white" target="_blank"><i
-                                    class="bi bi-instagram"></i></a></span>
+                        <span class="social-links-attr"> <a href="https://web.facebook.com/INVEXDIJIN/about"
+                                class="text-white" target="_blank"><i class="bi bi-facebook"></i>|</a></span>
+                        <span class="social-links-attr"> <a href="https://www.instagram.com/invexdijin/"
+                                class="text-white" target="_blank"><i class="bi bi-instagram"></i>|</a></span>
+                        <span class="social-links-attr"> <a href="https://twitter.com/steue08" class="text-white"
+                                target="_blank"><i class="bi bi-twitter-x"></i>|</a></span>
+                        <span class="social-links-attr"> <a href="www.tiktok.com/@invexdijin" class="text-white"
+                                target="_blank"><i class="bi bi-tiktok"></i></a></span>
                     </div>
                 </h2>
 
@@ -129,7 +132,7 @@
                 <h3>{{'contact-label-our-mail'|translate}}</h3>
                 <h4>
                     <i class="bi bi-envelope-at"></i>
-                    INFO&#64;INVEXDIJIN.COM
+                    {{'email-contact-label'|translate}}
                 </h4>
             </div>
         </div>

@@ -116,6 +116,10 @@
                             </div>
                         </div>
                     </div>
+                    <hr />
+                    <div class="d-grid gap-2 d-md-block p-2" *ngIf="confirmHuman">
+                        <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
+                    </div>
                     <div class="d-grid gap-2 d-md-block p-2">
                         <div class="ng-template" *ngIf="searchPersonForm.form.invalid else recaptcha">
                             <span class="d-inline-block float-start" tabindex="0" data-toggle="tooltip"
@@ -144,10 +148,7 @@
                     <div class="alert alert-warning responsive-native" role="alert">
                         <b>{{'adult-information'|translate}}</b>
                     </div>
-                    <hr />
-                    <div class="d-grid gap-2 d-md-block p-2" *ngIf="confirmHuman">
-                        <re-captcha (resolved)="resolved($event)" siteKey="{{siteKey}}"></re-captcha>
-                    </div>
+                    
                 </form>
             </div>
         </div>
