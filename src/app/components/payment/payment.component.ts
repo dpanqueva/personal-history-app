@@ -75,7 +75,6 @@ export class PaymentComponent implements OnInit {
     this.paymentReference.initSearch = searchInit;
     const promise = this.paymentService.payUBuy(this.paymentReference);
     promise.then((product) => {
-      debugger;
       let url_payu = environment.base_url_payu_prod;
       let paymentString = `
           <html>
