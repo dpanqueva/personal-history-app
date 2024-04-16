@@ -20,6 +20,7 @@ export class PaymentComponent implements OnInit {
   siteKey: string = environment.recaptcha_key;
   captcha: string = "";
   searchPay: SearchPeopleJudicial = new SearchPeopleJudicial();
+  
 
   constructor(
     private activateRoute: ActivatedRoute
@@ -28,6 +29,7 @@ export class PaymentComponent implements OnInit {
     , private paymentService: PaymentService) { }
 
   ngOnInit(): void {
+
     this.activateRoute.params.subscribe(params => {
       const referenceLocator = params['referenceLocator']
       if (referenceLocator) {
@@ -69,15 +71,16 @@ export class PaymentComponent implements OnInit {
 
   onClickPayment(): void {
     let searchInit = new SearchPeopleJudicial();
-    searchInit.id = this.reference;
+    searchInit = this.searchPay;
     this.paymentReference.initSearch = searchInit;
     const promise = this.paymentService.payUBuy(this.paymentReference);
     promise.then((product) => {
-
+      debugger;
+      let url_payu = environment.base_url_payu_prod;
       let paymentString = `
           <html>
             <body>
-              <form action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/" method="post" id="payu_form">
+              <form action="${url_payu}" method="post" id="payu_form">
               <input name="merchantId"      type="hidden"  value="${product.merchantId}">
               <input name="accountId"       type="hidden"  value="${product.accountId}">
               <input name="description"     type="hidden"  value="${product.description}">

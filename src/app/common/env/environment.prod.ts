@@ -6,5 +6,6 @@ export const environment ={
     mensaje_no_encontrado: 'sweet-alert-not-found',
     mensaje_internal_error: 'sweet-alert-internal-error',
     contacto_registrado_ok: 'sweet-alert-registered-contact',
-    recaptcha_key:"6LeRXWcpAAAAAJ4WdzGMS2CiFXX8RLA0yRtBq-BX"
+    recaptcha_key:"6LeRXWcpAAAAAJ4WdzGMS2CiFXX8RLA0yRtBq-BX",
+    base_url_payu_prod: "https://checkout.payulatam.com/ppp-web-gateway-payu/"
 }
