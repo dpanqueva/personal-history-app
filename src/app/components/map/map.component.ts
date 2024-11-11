@@ -79,7 +79,7 @@ export class MapComponent {
   });
 
   private async apiGoogle() {
-    const apikey = "AIzaSyBbCaPJDJSPN8Zon_cciGrw_RhkgCGYHr4";
+    const apikey = "_cciGrw_";
     this.httpHeaders.append('Authorization', 'Bearer ' + apikey);
     // Obtenemos la dirección del usuario
     const address = "CLL 60 A SUR # 73-31, Bogotá, Colombia";
